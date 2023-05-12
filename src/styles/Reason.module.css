@@ -1,0 +1,26 @@
+
+
+.reasonWrapper{
+    display: flex;
+    max-width: 500px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.reasonNumber{
+    font-size: 4rem;
+    font-weight: bold;
+    width: 25%;
+    color: var(--grey-text);
+}
+.reasonTextWrapper{
+    width: 75%;
+    padding-top: 1rem;
+}
+.reasonTitle{
+/* font-size: 2rem; */
+margin-bottom: 1rem;
+}
+.reasonDesc{
+
+}

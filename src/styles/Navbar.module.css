@@ -1,0 +1,22 @@
+.navWrapper {
+    z-index: 40;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    overflow: hidden;
+    justify-content: flex-end;
+    min-height: 5rem;
+    background-color: bisque;
+    padding-right: 2rem;
+}
+
+.navTagsWrapper {
+    display: flex;
+    height: 100%;
+    gap: 2rem;
+}
+.navItems:hover{
+    font-weight: bold;
+    transition: font-size .3s ease-in-out;
+}

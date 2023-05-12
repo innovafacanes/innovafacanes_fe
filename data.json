@@ -1,0 +1,249 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "createdAt": "2023-03-28T18:48:15.201Z",
+      "updatedAt": "2023-04-06T16:47:50.055Z",
+      "publishedAt": "2023-04-06T16:47:50.051Z",
+      "locale": "ca",
+      "top_carousel": {
+        "data": [
+          {
+            "id": 3,
+            "attributes": {
+              "name": "home_car_1.jpg",
+              "alternativeText": "habitatge-unifamiliar",
+              "caption": null,
+              "width": 1599,
+              "height": 899,
+              "formats": {
+                "thumbnail": {
+                  "name": "thumbnail_home_car_1.jpg",
+                  "hash": "thumbnail_home_car_1_895d6126a8",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 245,
+                  "height": 138,
+                  "size": 9.07,
+                  "url": "/uploads/thumbnail_home_car_1_895d6126a8.jpg"
+                },
+                "medium": {
+                  "name": "medium_home_car_1.jpg",
+                  "hash": "medium_home_car_1_895d6126a8",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 750,
+                  "height": 422,
+                  "size": 57.7,
+                  "url": "/uploads/medium_home_car_1_895d6126a8.jpg"
+                },
+                "small": {
+                  "name": "small_home_car_1.jpg",
+                  "hash": "small_home_car_1_895d6126a8",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 500,
+                  "height": 281,
+                  "size": 29.82,
+                  "url": "/uploads/small_home_car_1_895d6126a8.jpg"
+                },
+                "large": {
+                  "name": "large_home_car_1.jpg",
+                  "hash": "large_home_car_1_895d6126a8",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 1000,
+                  "height": 562,
+                  "size": 91.56,
+                  "url": "/uploads/large_home_car_1_895d6126a8.jpg"
+                }
+              },
+              "hash": "home_car_1_895d6126a8",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 188.78,
+              "url": "/uploads/home_car_1_895d6126a8.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-03-28T18:47:05.013Z",
+              "updatedAt": "2023-03-28T18:47:05.013Z"
+            }
+          },
+          {
+            "id": 4,
+            "attributes": {
+              "name": "home_car_2.jpg",
+              "alternativeText": "habitatge-unifamiliar",
+              "caption": null,
+              "width": 1600,
+              "height": 1200,
+              "formats": {
+                "thumbnail": {
+                  "name": "thumbnail_home_car_2.jpg",
+                  "hash": "thumbnail_home_car_2_703624f57d",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 208,
+                  "height": 156,
+                  "size": 6.05,
+                  "url": "/uploads/thumbnail_home_car_2_703624f57d.jpg"
+                },
+                "medium": {
+                  "name": "medium_home_car_2.jpg",
+                  "hash": "medium_home_car_2_703624f57d",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 750,
+                  "height": 563,
+                  "size": 48.57,
+                  "url": "/uploads/medium_home_car_2_703624f57d.jpg"
+                },
+                "small": {
+                  "name": "small_home_car_2.jpg",
+                  "hash": "small_home_car_2_703624f57d",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 500,
+                  "height": 375,
+                  "size": 24.21,
+                  "url": "/uploads/small_home_car_2_703624f57d.jpg"
+                },
+                "large": {
+                  "name": "large_home_car_2.jpg",
+                  "hash": "large_home_car_2_703624f57d",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 1000,
+                  "height": 750,
+                  "size": 79.3,
+                  "url": "/uploads/large_home_car_2_703624f57d.jpg"
+                }
+              },
+              "hash": "home_car_2_703624f57d",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 147.3,
+              "url": "/uploads/home_car_2_703624f57d.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-03-28T18:47:05.039Z",
+              "updatedAt": "2023-03-28T18:47:05.039Z"
+            }
+          },
+          {
+            "id": 5,
+            "attributes": {
+              "name": "home_car_3.jpeg",
+              "alternativeText": "edifici_residencial",
+              "caption": null,
+              "width": 2016,
+              "height": 1285,
+              "formats": {
+                "thumbnail": {
+                  "name": "thumbnail_home_car_3.jpeg",
+                  "hash": "thumbnail_home_car_3_a09cc0f71b",
+                  "ext": ".jpeg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 245,
+                  "height": 156,
+                  "size": 11.13,
+                  "url": "/uploads/thumbnail_home_car_3_a09cc0f71b.jpeg"
+                },
+                "medium": {
+                  "name": "medium_home_car_3.jpeg",
+                  "hash": "medium_home_car_3_a09cc0f71b",
+                  "ext": ".jpeg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 750,
+                  "height": 478,
+                  "size": 82.39,
+                  "url": "/uploads/medium_home_car_3_a09cc0f71b.jpeg"
+                },
+                "small": {
+                  "name": "small_home_car_3.jpeg",
+                  "hash": "small_home_car_3_a09cc0f71b",
+                  "ext": ".jpeg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 500,
+                  "height": 318,
+                  "size": 39.34,
+                  "url": "/uploads/small_home_car_3_a09cc0f71b.jpeg"
+                },
+                "large": {
+                  "name": "large_home_car_3.jpeg",
+                  "hash": "large_home_car_3_a09cc0f71b",
+                  "ext": ".jpeg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 1000,
+                  "height": 637,
+                  "size": 135.84,
+                  "url": "/uploads/large_home_car_3_a09cc0f71b.jpeg"
+                }
+              },
+              "hash": "home_car_3_a09cc0f71b",
+              "ext": ".jpeg",
+              "mime": "image/jpeg",
+              "size": 376.1,
+              "url": "/uploads/home_car_3_a09cc0f71b.jpeg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-03-28T18:47:05.093Z",
+              "updatedAt": "2023-03-28T18:47:05.093Z"
+            }
+          }
+        ]
+      },
+      "perque_nosaltres": [
+        {
+          "id": 1,
+          "titol_rao": "Solucions",
+          "descripcio_rao": "Subministrem i instal·lem diferents sistemes constructius, oferint una solució integral als seus problemes, des de l’interior a l’exterior de l’edifici."
+        },
+        {
+          "id": 4,
+          "titol_rao": "Sector",
+          "descripcio_rao": "Treballem tant per obra pública com per privada, ja sigui obra nova, rehabilitació o restauració, i de qualsevol metratge."
+        },
+        {
+          "id": 8,
+          "titol_rao": "Material",
+          "descripcio_rao": "Utilitzem materials de les marques més prestigioses del mercat, oferint així la millor garantia de qualitat."
+        },
+        {
+          "id": 10,
+          "titol_rao": "Garantia",
+          "descripcio_rao": "Ens assegurem que les instal·lacions compleixin amb la normativa del CTE, que els materials disposin dels seus certificats de qualitat i que s’instal·lin seguint les directrius tècniques de cada fabricant."
+        }
+      ],
+      "localizations": {
+        "data": [
+          {
+            "id": 2,
+            "attributes": {
+              "createdAt": "2023-03-28T18:49:46.799Z",
+              "updatedAt": "2023-04-06T16:47:50.080Z",
+              "publishedAt": "2023-03-28T18:56:32.686Z",
+              "locale": "en"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "meta": {}
+}

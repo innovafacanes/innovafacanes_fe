@@ -1,0 +1,59 @@
+{
+    "data": {
+        "id": 1,
+        "attributes": {
+            "titol": "Qui som?",
+            "createdAt": "2023-05-05T11:37:09.597Z",
+            "updatedAt": "2023-05-05T11:51:01.261Z",
+            "publishedAt": "2023-05-05T11:51:01.257Z",
+            "locale": "ca",
+            "tema": [
+                {
+                    "id": 1,
+                    "titol": "Equip",
+                    "descripcio": "Innova façanes és una empresa formada per un equip humà amb una llarga experiència i professionalitat dins el sector de la construcció. Treballem amb enginyers…"
+                },
+                {
+                    "id": 5,
+                    "titol": "Obra",
+                    "descripcio": "Aquest és un projecte que neix amb l’objectiu d’aportar solucions eficients davant problemes de conservació i aïllament, assegurant sempre la funcionalitat i estètica que han de caracteritzar la façana d’un edifici. Donem una solució integral als projectes, des de l’estudi i el disseny fins a l’entrega de l’obra acabada, adaptant-nos a les necessitats del client i proporcionant un resultat perllongant en el temps."
+                },
+                {
+                    "id": 8,
+                    "titol": "Medi ambient",
+                    "descripcio": "A innova façanes ens comprometem amb el medi ambient, utilitzem sistemes de col·locació i materials que redueixen l’impacte mediambiental. I conscients de les necessitats de la societat actual, degut al canvi climàtic i la falta de recursos, apostem per l’estalvi energètic i som especialistes en façanes ventilades. "
+                },
+                {
+                    "id": 11,
+                    "titol": "Façana ventilada",
+                    "descripcio": "Aquesta forma d’aïllament garanteix avantatges tant ecològiques com econòmiques. Utilitza sistemes de construcció que protegeixen el medi ambient, permet un òptim aïllament tèrmic, redueix el soroll, protegeix davant factors climàtics i afavoreix l’estalvi energètic. Els materials tenen una alta durabilitat, que permeten reduir costos i mantenir una higiene permanent."
+                }
+            ],
+            "localizations": {
+                "data": [
+                    {
+                        "id": 3,
+                        "attributes": {
+                            "titol": "Quiénes somos?",
+                            "createdAt": "2023-05-05T11:40:53.384Z",
+                            "updatedAt": "2023-05-05T11:51:16.799Z",
+                            "publishedAt": "2023-05-05T11:51:16.796Z",
+                            "locale": "es"
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "attributes": {
+                            "titol": "Who are we?",
+                            "createdAt": "2023-05-05T11:40:01.584Z",
+                            "updatedAt": "2023-05-05T11:51:12.236Z",
+                            "publishedAt": "2023-05-05T11:51:12.232Z",
+                            "locale": "en"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "meta": {}
+}

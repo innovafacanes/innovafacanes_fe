@@ -1,9 +1,15 @@
 import React from 'react'
+import Navbar from '../../components/Navbar';
+import { fetchNosaltres } from './api/fetching';
 
-const Nosaltres = () => {
+export default function Nosaltres () {
   return (
-    <div>Nosaltres</div>
+    <>
+    <Navbar/>
+    </>
   )
 }
 
-export default Nosaltres;
+export async function getStaticProps(){
+  return fetchNosaltres();
+}

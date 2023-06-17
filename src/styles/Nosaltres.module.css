@@ -1,0 +1,51 @@
+
+
+.nosaltresWrapper{
+    width: 100vw;
+    overflow-x: hidden;
+    padding: 10rem 0rem;
+}
+
+.mainTitle{
+    padding-left: 10rem;
+}
+
+.sectionWrapper{
+    padding-top: 5rem;
+}
+
+
+.themeWrapper{
+    display: flex;
+    margin: 5rem 0rem;
+}
+
+.themeText{
+    flex: 1;
+    padding: 5rem 10rem;
+}
+
+.themeDescription{
+    padding-top: 2rem;
+    padding-right: 10rem;
+}
+
+
+
+.themeImageWrapper1{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.themeImageWrapper2 {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.themeImg{
+    width: 600px;
+    height: 400px;
+    object-fit: cover;
+}

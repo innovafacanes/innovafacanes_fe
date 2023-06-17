@@ -1,0 +1,76 @@
+
+
+.mainProjectes{
+    display: flex;
+    align-items: space-evenly;
+    flex-direction: column;
+    width: 100vw;
+    padding: 10rem 10rem;
+}
+
+.projectsWrapper{
+    display: flex;
+    margin-top: 5rem;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.projectWrapper{
+    position: relative;
+    -webkit-filter: brightness(100%);
+}
+.projectWrapper:hover{
+    
+    cursor: pointer;
+}
+.projectImg:hover{
+    -webkit-filter: brightness(50%);
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+.projectWrapper:hover .projectTitle{
+    visibility: visible;
+    opacity: 1;
+    z-index: 10;
+}
+
+.projectTitle{
+    font-size: 2rem;
+    color: white;
+    position: absolute;
+    left: 1.2rem;
+    bottom: 1.2rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+
+.fullScreenPopup{
+ 
+    
+}
+
+.popupWrapper{
+    width: max-content;
+    
+	
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #181818;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectDetailImg{
+    position: absolute;
+}
+
+.detailText{
+    z-index: 5;
+}

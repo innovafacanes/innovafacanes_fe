@@ -1,0 +1,18 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "nom_empresa": "INNOVA FAÇANES S.L.",
+      "direccio_empresa": "C/Praga 15, 08191, Rubí",
+      "telefon_empresa": "+34 93 713 67 03",
+      "mobil_empresa": "+34 62 659 60 01",
+      "email_empresa": "innovafacanes@innovafacanes.cat",
+      "createdAt": "2023-05-30T20:46:59.048Z",
+      "updatedAt": "2023-05-30T20:52:40.729Z",
+      "publishedAt": "2023-05-30T20:47:02.210Z",
+      "locale": "ca",
+      "localizations": { "data": [] }
+    }
+  },
+  "meta": {}
+}

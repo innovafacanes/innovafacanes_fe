@@ -3,17 +3,19 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Navbar from "../../components/Navbar";
 import HomeCarousel from "../../components/HomeCarousel";
-import { useEffect, useState, Image } from "react";
+import { useEffect, useState } from "react";
 import { getCarouselPaths, getReasons } from "../model/getHomeData";
 import Reason from "../../components/Reason";
 import Footer from "../../components/Footer";
 import { fetchHome } from "./api/fetching";
+import Link from "next/link";
+import Image  from 'next/image';
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({carousel, reasons}) {
+export default function Home({ carousel, reasons }) {
   // 2 objects in JavaScript are equal only if they reference exactly the same object.
-console.log(carousel, reasons);
+  console.log(carousel, reasons);
   return (
     <>
       <Head>
@@ -31,16 +33,60 @@ console.log(carousel, reasons);
           </section>
           <section className={styles.homeReasons}>
             <div className={styles.sectionTitleWrapper}>
-              <div><h2 className={styles.sectionTitle}>Per què nosaltres?</h2></div>
-              <div className={styles.moreInfo}>MÉS INFORMACIÓ</div>
+              <div>
+                <h2 className={styles.sectionTitle}>Per què nosaltres?</h2>
+              </div>
+              <div className={styles.actionWrapper}>
+              <Link href="/nosaltres" rel="noopener noreferrer"><div className={styles.moreInfo}>MÉS INFORMACIÓ</div></Link>
+                <Link href="/nosaltres" rel="noopener noreferrer">
+                  <Image
+                    src="\arrow_right_black.svg"
+                    alt="more info"
+                    width={40}
+                    height={20}
+
+                  ></Image>
+                </Link>
+              </div>
             </div>
             <div className={styles.reasonsWrapper}>
-            {reasons.map(({reasonTitle, reasonDesc}, index) => (
-              <Reason key={index} number={index} reasonTitle={reasonTitle} reasonDesc={reasonDesc}/>
-            ))}
+              {reasons.map(({ reasonTitle, reasonDesc }, index) => (
+                <Reason
+                  key={index}
+                  number={index}
+                  reasonTitle={reasonTitle}
+                  reasonDesc={reasonDesc}
+                />
+              ))}
             </div>
           </section>
-          <section className={styles.homePortfolio}></section>
+          <section className={styles.homePortfolio}>
+            <div className={styles.sectionTitleWrapper}>
+              <div>
+                <h2 className={styles.sectionTitle}>Projectes</h2>
+              </div>
+              <div className={styles.actionWrapper}>
+              <Link href="/projectes" rel="noopener noreferrer"><div className={styles.moreInfo}>MÉS INFORMACIÓ</div></Link>
+                <Link href="/projectes" rel="noopener noreferrer">
+                  <Image
+                    src="\arrow_right_black.svg"
+                    alt="more info"
+                    width={40}
+                    height={20}
+                  ></Image>
+                </Link>
+              </div>
+            </div>
+            <div className={styles.container}>
+              <div className={styles.one}></div>
+              <div className={styles.two}></div>
+              <div className={styles.three}></div>
+              <div className={styles.four}></div>
+              <div className={styles.five}></div>
+              <div className={styles.six}></div>
+              <div className={styles.seven}></div>
+            </div>
+          </section>
           <Footer></Footer>
         </main>
       </>
@@ -48,6 +94,6 @@ console.log(carousel, reasons);
   );
 }
 
-export async function getStaticProps(){
+export async function getStaticProps() {
   return fetchHome();
 }

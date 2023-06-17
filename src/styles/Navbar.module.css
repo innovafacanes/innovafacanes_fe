@@ -5,10 +5,10 @@
     align-items: center;
     width: 100vw;
     overflow: hidden;
-    justify-content: flex-end;
+    justify-content: space-between;
     min-height: 5rem;
     background-color: bisque;
-    padding-right: 2rem;
+    padding: 0rem 2rem;
 }
 
 .navTagsWrapper {
@@ -19,4 +19,8 @@
 .navItems:hover{
     font-weight: bold;
     transition: font-size .3s ease-in-out;
+}
+
+.logo {
+    object-fit: all;
 }

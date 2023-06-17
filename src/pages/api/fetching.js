@@ -3,8 +3,7 @@ import { getCarouselPaths, getReasons } from "@/model/getHomeData";
 import { getNosaltresInfo } from "@/model/getNosaltresData";
 import { getProjectData } from "@/model/getProjectData";
 
-const STRAPI_BASE_URL = 'http://91.107.192.77/api/';
-//const STRAPI_BASE_URL = `http://127.0.0.1:1337/api/`;
+const STRAPI_BASE_URL = process.env.STRAPI_BASE_URL;
 
 export async function fetchHome() {
     const response = await fetch(`${STRAPI_BASE_URL}home?populate=*`);

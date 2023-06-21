@@ -33,7 +33,6 @@ const handleSubmit = (e) => {
       formData: formData
     }),
   })
-  // Perform any further actions with the form data, such as sending it to a server or storing it locally
   console.log(formData);
 };
 

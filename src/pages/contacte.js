@@ -4,6 +4,7 @@ import styles from "@/styles/Contacte.module.css";
 import { fetchContacte } from "./api/fetching";
 import Footer from "../../components/Footer";
 import Image from "next/image";
+import Head from "next/head";
 
 const STRAPI_BASE_URL = process.env.STRAPI_BASE_URL;
 
@@ -38,8 +39,11 @@ const handleSubmit = (e) => {
 
   return (
     <>
+    <Head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+    </Head>
       <Navbar />
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+      
       <main className={styles.mainContacte}>
         <div className={styles.firstDiv}>
           <h1 className={styles.contactTitle}>CONTACTA AMB NOSALTRES</h1>

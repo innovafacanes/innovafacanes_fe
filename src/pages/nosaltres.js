@@ -28,7 +28,7 @@ export default function Nosaltres(props) {
             </div>
           </div>
           {/*SECOND*/}
-          <div className={styles.themeWrapper}>
+          <div className={`${styles.themeWrapperReverse}`}>
             <div className={styles.themeImageWrapper2}>
             <Image  className={styles.themeImg} src={`${props.nosaltresInfo[1].image}`} alt={props.nosaltresInfo[1].alt} width={imgWidth} height={imgHeight}/>
             </div>
@@ -48,7 +48,7 @@ export default function Nosaltres(props) {
             </div>
           </div>
           {/*FOURTH*/}
-          <div className={styles.themeWrapper}>
+          <div className={`${styles.themeWrapperReverse}`}>
           <div className={styles.themeImageWrapper2}>
           <Image  className={styles.themeImg} src={`${props.nosaltresInfo[3].image}`} alt={props.nosaltresInfo[3].alt} width={imgWidth} height={imgHeight}/>
           </div>

@@ -1,11 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import styles from "@/styles/Contacte.module.css";
 import { fetchContacte } from "./api/fetching";
 import Footer from "../../components/Footer";
 import Image from "next/image";
 
+const STRAPI_BASE_URL = process.env.STRAPI_BASE_URL;
+
 const Contacte = (props) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+const handleInputChange = (e) => {
+  const { name, value } = e.target;
+  setFormData((prevData) => ({
+    ...prevData,
+    [name]: value
+  }));
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  fetch(`${STRAPI_BASE_URL}ezforms/submit`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      formData: formData
+    }),
+  })
+  // Perform any further actions with the form data, such as sending it to a server or storing it locally
+  console.log(formData);
+};
+
   return (
     <>
       <Navbar />
@@ -21,11 +52,11 @@ const Contacte = (props) => {
         </div>
         <div className={styles.secondDiv}>
           <div className={styles.formWrapper}>
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.namemail}>
                 <div>
                   <div className={styles.label}>
-                    <label for="name">Name:</label>
+                    <label htmlFor="name">Name:</label>
                   </div>
                   <input
                     type="text"
@@ -33,11 +64,13 @@ const Contacte = (props) => {
                     name="name"
                     className={styles.input}
                     placeholder="Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                   ></input>
                 </div>
                 <div>
                   <div className={styles.label}>
-                    <label for="email">Email:</label>
+                    <label htmlFor="email">Email:</label>
                   </div>
                   <input
                     type="email"
@@ -45,18 +78,24 @@ const Contacte = (props) => {
                     name="email"
                     className={styles.input}
                     placeholder="example@example.com"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                   ></input>
                 </div>
               </div>
               <div className={styles.message}>
-              <label for="message">Text:</label>
-              <input
+              <label htmlFor="message">Text:</label>
+              <textarea
                 type="text"
                 id="message"
                 name="message"
                 className={styles.messageBox}
-                placeholder="Text"
-              ></input>
+                placeholder="Escriu el missatge"
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+              ></textarea>
               </div>
               <div className={styles.submit}>
               <input
@@ -74,9 +113,9 @@ const Contacte = (props) => {
               width="600"
               height="450"
               className={styles.map}
-              allowfullscreen=""
+              allowFullScreen=""
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
+              referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>

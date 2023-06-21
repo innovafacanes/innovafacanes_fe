@@ -4,7 +4,7 @@ export const getProjectData = (props) => {
       id: index,
       title: project.attributes.Title,
       description: project.attributes.Description,
-      date: project.attributes.Description,
+      date: project.attributes.Date,
       images: project.attributes.Images,
     }));
       return list;

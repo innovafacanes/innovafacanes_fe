@@ -5,7 +5,7 @@
     align-items: space-evenly;
     flex-direction: column;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     padding: 10rem 10rem;
 }
 
@@ -21,7 +21,9 @@
     flex: 1;
 }
 .mapWrapper{
+    display: flex;
     flex: 1;
+    justify-content: flex-end;
     
 }
 
@@ -65,12 +67,21 @@
 .messageBox{
     height: 6rem;
     border: none;
+    max-width: 300px;
     border-bottom: 1px solid black;
+    resize: none;
+    box-sizing: border-box;
 }
+.messageBox::placeholder{
+    padding-left: .5rem;
+    padding-top: .5rem;
+}
+
 .message{
     display: flex;
     flex-direction: column;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    gap: 1rem;
 }
 .submit{
     display: flex;
@@ -95,7 +106,58 @@
     font-weight: bolder;
 }
 
+@media (max-width: 1200px) {
+    .firstDiv, .secondDiv{
+      flex-direction: column;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .infoWrapper{
+        flex: 1;
+        justify-content: flex-start;
+        text-align: start;
+        gap: 3rem;
+    }
+  
+  }
 
+  @media (max-width: 900px) {
+    .mainContacte{
+        padding: 10rem 5rem;
+    }
+  }
+
+  @media (max-width: 750px) {
+    .mainContacte{
+        padding: 10rem 5rem;
+    }
+    .map{
+        width: 400px;
+        height: 275px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .mainContacte{
+        padding: 10rem 2rem;
+    }
+    .map{
+        width: 80%;
+        height: 225px;
+    }
+    .mapWrapper{
+        justify-content: center;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .namemail{
+        flex-direction: column;
+    }
+    .contactTitle{
+        font-size: 3rem;
+    }
+  }
 
 
 

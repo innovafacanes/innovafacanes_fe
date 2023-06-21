@@ -8,7 +8,7 @@ export default function Footer(props) {
       <div className={styles.footerActionWrapper}>
         <div className={styles.actionWrapper}>
         <Link href="/contacte" rel="noopener noreferrer"><h2 className={styles.footerAction}>CONTACTA AMB NOSALTRES</h2></Link>
-        <Link href="/contacte" rel="noopener noreferrer"><Image src="\arrow_right.svg" alt="contacta" width={80} height={40}></Image></Link>
+        <Link href="/contacte" rel="noopener noreferrer"><Image src="\arrow_right.svg" alt="contacta" width={80} height={40} className={styles.arrow}></Image></Link>
         </div>
       </div>
       <div className={styles.footerInfo}>

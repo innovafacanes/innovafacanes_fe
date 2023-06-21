@@ -7,7 +7,7 @@
 }
 
 .mainTitle{
-    padding-left: 10rem;
+    padding-left: 15rem;
 }
 
 .sectionWrapper{
@@ -15,9 +15,9 @@
 }
 
 
-.themeWrapper{
+.themeWrapper, .themeWrapperReverse{
     display: flex;
-    margin: 5rem 0rem;
+    margin: 5rem 15rem;
 }
 
 .themeText{
@@ -27,9 +27,7 @@
 
 .themeDescription{
     padding-top: 2rem;
-    padding-right: 10rem;
 }
-
 
 
 .themeImageWrapper1{
@@ -49,3 +47,78 @@
     height: 400px;
     object-fit: cover;
 }
+
+
+@media (max-width: 1700px) {
+    .themeText{
+        flex: 1;
+        padding: 3rem ;
+    }
+    .themeWrapper, .themeWrapperReverse{
+        margin: 5rem 8rem;
+    }
+    .mainTitle{
+        padding-left: 10rem;
+    }
+  }
+  @media (max-width: 1250px) {
+    .themeText{
+        flex: 1;
+        padding: 2rem ;
+    }
+    .themeWrapper, .themeWrapperReverse{
+        margin: 3rem 5rem;
+    }
+    .mainTitle{
+        padding-left: 7rem;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .themeText{
+        flex: 1;
+        padding: 2rem ;
+    }
+    .themeWrapperReverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .themeWrapper{
+        flex-direction: column;
+        margin: 3rem 5rem;
+    }
+    .themeText{
+        flex: 1;
+        padding-right: 8rem ;
+    }
+    .themeImageWrapper1{
+        justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .themeImg{
+        width: 400px;
+        height: 275px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .themeImg{
+        width: 90%;
+        height: 225px;
+    }
+    .themeWrapper, .themeWrapperReverse{
+        margin: 3rem 2rem;
+    }
+    .themeImageWrapper1{
+        justify-content: center;
+    }
+    .themeText{
+        flex: 1;
+        padding: 2rem ;
+    }
+    .sectionWrapper{
+        padding-top: 0;
+    }
+  }

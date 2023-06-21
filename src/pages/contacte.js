@@ -39,6 +39,7 @@ const handleSubmit = (e) => {
   return (
     <>
       <Navbar />
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
       <main className={styles.mainContacte}>
         <div className={styles.firstDiv}>
           <h1 className={styles.contactTitle}>CONTACTA AMB NOSALTRES</h1>

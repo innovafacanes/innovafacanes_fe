@@ -22,7 +22,7 @@ export default function Home({ carousel, reasons }) {
         <title>Innovafaçanes</title>
         <meta name="description" content="Innovafaçanes" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+        
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>

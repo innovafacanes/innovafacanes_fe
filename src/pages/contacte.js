@@ -24,7 +24,7 @@ const handleInputChange = (e) => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  fetch(`${STRAPI_BASE_URL}ezforms/submit`, {
+  fetch(`http://91.107.192.77/api/ezforms/submit`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -6,8 +6,8 @@ import Footer from "../../components/Footer";
 import Image from "next/image";
 import Head from "next/head";
 
-const STRAPI_BASE_URL = process.env.STRAPI_BASE_URL;
 
+const STRAPI_FORM_URL = `${process.env.STRAPI_BASE_URL}ezforms/submit`;
 const Contacte = (props) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -25,7 +25,7 @@ const handleInputChange = (e) => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  fetch(`http://91.107.192.77/api/ezforms/submit`, {
+  fetch(STRAPI_FORM_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

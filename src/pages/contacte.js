@@ -25,7 +25,7 @@ const handleInputChange = (e) => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  fetch(`${STRAPI_BASE_URL}ezforms/submit`, {
+  fetch(`https://strapi.innovafacanes.cat/api/ezforms/submit`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

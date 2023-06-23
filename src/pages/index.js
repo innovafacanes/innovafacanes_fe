@@ -30,6 +30,11 @@ export default function Home({ carousel, reasons, projects }) {
         <Navbar></Navbar>
         <main className={styles.main}>
           <section className={styles.homeHeader}>
+            <div className={styles.headerTitleWrapper}>
+              <h1>Diferents sistemes.</h1>
+              <h1>Solucions integrals.</h1>
+              <h1>Màxima qualitat.</h1>
+            </div>
             <HomeCarousel carousel={carousel}></HomeCarousel>
             {/* <Image src={`${STRAPI_BASE_URL}${carousel[0].url}`} alt={`${carousel[0].alt}`}></Image> */}
           </section>

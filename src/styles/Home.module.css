@@ -16,7 +16,23 @@
 }
 .homeCarouselImg{
   object-fit: cover;
+  filter: contrast(.8);
 }
+
+
+.headerTitleWrapper{
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  position: absolute;
+  left: 5rem;
+  top: 30vh;
+  color: white;
+  gap: 2rem;
+  border-left: 2px solid white;
+  padding-left: 2rem;
+}
+
 
 /*--------------------------------------------------------*/
 /*-----------------------SECTION TITLE--------------------*/
@@ -263,14 +279,25 @@ align-self: end;}
 
 @media (max-width: 800px) {
   .embla{
-    height: 50vh;
+    height: 60vh;
   }
   .homeHeader{
-    height: 50vh;
+    height: 60vh;
   }
-  
+  .headerTitleWrapper{
+    font-size: .6rem;
+    top: 20vh;
+    gap: 1.5rem;
+  }
 }
 
+@media (max-width: 475px){
+  .headerTitleWrapper{
+    font-size: .5rem;
+    left: 2.5rem;
+    padding-left: 1rem;
+  }
+}
 
 @media (max-width: 1000px) {
   .container{

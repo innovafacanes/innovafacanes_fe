@@ -7,7 +7,7 @@ import Image from "next/image";
 import Head from "next/head";
 
 
-const STRAPI_FORM_URL = `${process.env.STRAPI_BASE_URL}ezforms/submit`;
+const STRAPI_BASE_URL = process.env.STRAPI_BASE_URL;
 const Contacte = (props) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -25,7 +25,7 @@ const handleInputChange = (e) => {
 
 const handleSubmit = (e) => {
   e.preventDefault();
-  fetch(STRAPI_FORM_URL, {
+  fetch(`${STRAPI_BASE_URL}ezforms/submit`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

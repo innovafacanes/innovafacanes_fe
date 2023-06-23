@@ -23,7 +23,7 @@
 .headerTitleWrapper{
   display: flex;
   flex-direction: column;
-  z-index: 100;
+  z-index: 30;
   position: absolute;
   left: 5rem;
   top: 30vh;

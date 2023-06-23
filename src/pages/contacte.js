@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
 import styles from "@/styles/Contacte.module.css";
-import { fetchContacte } from "./api/fetching";
-import Footer from "../../components/Footer";
 import Image from "next/image";
-import Head from "next/head";
+import { useState } from "react";
+import Footer from "../../components/Footer";
+import Navbar from "../../components/Navbar";
+import { fetchContacte } from "./api/fetching";
 
 
 const STRAPI_BASE_URL = process.env.STRAPI_BASE_URL;

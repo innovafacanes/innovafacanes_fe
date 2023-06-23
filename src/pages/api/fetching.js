@@ -11,11 +11,17 @@ export async function fetchHome() {
     const data = json.data;
     const reasons = getReasons(data);
     const carousel = getCarouselPaths(data);
+    const response2 = await fetch(`${STRAPI_BASE_URL}projects?populate=*`);
+    const json2 = await response2.json();
+    const data2 = json2.data;
+    const projects = getProjectData(data2);
+
     console.log(data);
     return {
         props: {
             reasons,
             carousel,
+            projects,
         }
     }
 }

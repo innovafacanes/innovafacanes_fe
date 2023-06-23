@@ -31,7 +31,7 @@
   font-weight: bold;
 }
 .sectionTitle{
-
+margin-right: 2rem;
 }
 .moreInfo{
 
@@ -74,7 +74,6 @@
   padding: 0rem 10rem 10rem 10rem;
   min-height: 100vh;
   width: 100%;
-  border: 1px solid black;
 }
 
 
@@ -124,53 +123,173 @@
 
 /*PORTFOLIO GRID*/
 
-.container {  
-  display: grid;
-  grid-template-columns: 1.25fr 1.25fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 10px 10px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "one three five six"
-    "two four seven seven"
-    ". . . .";
-    height: 100vh;
-    
+.container {
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr ; 
+  gap: 1% 1%; 
+  grid-template-areas: 
+    "box0 box2 box4"
+    "box1 box3 box5"
+    ". . ."; 
+    height: 65vh;
 }
 
-.one {
-  grid-area: one;
+.box0 {
+  grid-area: box0;
   height: 140%;
-  border: 1px solid black;
+  position: relative;
 }
 
-.two {
+.box1 {
   align-self: end;
-  grid-area: two;
+  grid-area: box1;
   height: 60%;
-  border: 1px solid black;
+  position: relative;
 }
 
-.three {
+.box2 {
   align-self: start;
-  grid-area: three;
+  grid-area: box2;
   height: 60%;
-  border: 1px solid black;
+  position: relative;
 }
 
-.four {
+.box3 {
   align-self: end;
-  grid-area: four;
+  grid-area: box3;
   height: 140%;
-  border: 1px solid black;
+  position: relative;
 }
 
-.five { grid-area: five;
-  border: 1px solid black; }
+.box4 { grid-area: box4;
+  position: relative; 
+  height: 50%;
+align-self: start;}
 
-.six { grid-area: six; 
-  border: 1px solid black;}
+.box5 { grid-area: box5; 
+  height: 50%;
+  position: relative;
+align-self: end;}
 
-.seven { grid-area: seven; 
-  border: 1px solid black;}
 
+
+.projectImg{
+  object-fit: cover;
+  
+  position: relative;
+}
+
+.projectTitle{
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1.2rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+
+.projectImg:hover{
+  -webkit-filter: brightness(50%);
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  -ms-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+.projectWrapper:hover .projectTitle{
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+}
+
+.box0:hover .projectTitle{
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+}
+.box1:hover .projectTitle{
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+}
+.box2:hover .projectTitle{
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+}
+.box3:hover .projectTitle{
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+}
+.box4:hover .projectTitle{
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+}
+.box5:hover .projectTitle{
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+}
+
+.box0:hover, .box1:hover, .box2:hover, .box3:hover, .box4:hover, .box5:hover {
+  cursor: pointer;
+}
+
+
+
+
+
+.embla {
+  overflow: hidden;
+  height: 100vh;
+}
+.emblaContainer {
+  display: flex;
+  height: 100%;
+}
+.emblaSlide {
+  flex: 0 0 100%;
+  min-width: 0;
+  z-index: 5;
+  position: relative;
+  margin-right: 1rem;
+}
+
+@media (max-width: 800px) {
+  .embla{
+    height: 50vh;
+  }
+  .homeHeader{
+    height: 50vh;
+  }
+  
+}
+
+
+@media (max-width: 1000px) {
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+  }
+  .box0, .box1, .box2, .box3, .box4, .box5{
+    width: 250px;
+    height: 250px;
+    
+  }
+}
+
+@media (max-width: 500px) {
+  .homePortfolio{
+    padding: 2rem;
+  }
+}

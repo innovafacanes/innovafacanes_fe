@@ -10,12 +10,13 @@ import Footer from "../../components/Footer";
 import { fetchHome } from "./api/fetching";
 import Link from "next/link";
 import Image  from 'next/image';
+import useEmblaCarousel from 'embla-carousel-react';
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ carousel, reasons }) {
+export default function Home({ carousel, reasons, projects }) {
   // 2 objects in JavaScript are equal only if they reference exactly the same object.
-  console.log(carousel, reasons);
+  console.log(carousel, reasons, projects);
   return (
     <>
       <Head>
@@ -79,13 +80,25 @@ export default function Home({ carousel, reasons }) {
               </div>
             </div>
             <div className={styles.container}>
-              <div className={styles.one}></div>
-              <div className={styles.two}></div>
-              <div className={styles.three}></div>
-              <div className={styles.four}></div>
-              <div className={styles.five}></div>
-              <div className={styles.six}></div>
-              <div className={styles.seven}></div>
+              {projects.map((project, index) =>  {
+                return (
+                  index < 6 ? 
+                  
+                <div className={styles[`box${index}`]} key={index}>
+                <Link href="/projectes" rel="noopener noreferrer">
+                  {console.log(index)}
+                <Image
+                  className={styles.projectImg}
+                  src={`${project.images.data[0].attributes.url}`}
+                  alt={project.images.data[0].attributes.alternativeText}
+                  fill={true}
+                  style={{objectFit:'cover'}}
+                />
+                 <h2 className={styles.projectTitle}>{project.title}</h2>
+                 </Link>
+                </div>
+            : <></>
+              )})}
             </div>
           </section>
           <Footer></Footer>

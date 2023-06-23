@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "embla-carousel-react": "^8.0.0-rc07",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "flag-icons": "^6.6.6",

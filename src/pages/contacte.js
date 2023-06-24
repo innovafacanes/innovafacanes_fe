@@ -5,42 +5,36 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import { fetchContacte } from "./api/fetching";
 
+const { STRAPI_BASE_URL } = process.env;
 
-const STRAPI_BASE_URL = process.env.STRAPI_BASE_URL;
 const Contacte = (props) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
-const handleInputChange = (e) => {
-  const { name, value } = e.target;
-  setFormData((prevData) => ({
-    ...prevData,
-    [name]: value
-  }));
-};
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
-  fetch(`https://strapi.innovafacanes.cat/api/ezforms/submit`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      formData: formData
-    }),
-  })
-  console.log(formData);
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(`${STRAPI_BASE_URL}/ezforms/submit`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ formData: formData }),
+    });
+    console.log(formData);
+  };
 
   return (
     <>
-    
       <Navbar />
-      
       <main className={styles.mainContacte}>
         <div className={styles.firstDiv}>
           <h1 className={styles.contactTitle}>CONTACTA AMB NOSALTRES</h1>
@@ -86,26 +80,31 @@ const handleSubmit = (e) => {
                 </div>
               </div>
               <div className={styles.message}>
-              <label htmlFor="message">Text:</label>
-              <textarea
-                type="text"
-                id="message"
-                name="message"
-                className={styles.messageBox}
-                placeholder="Escriu el missatge"
-                value={formData.message}
-                onChange={handleInputChange}
-                required
-              ></textarea>
+                <label htmlFor="message">Text:</label>
+                <textarea
+                  type="text"
+                  id="message"
+                  name="message"
+                  className={styles.messageBox}
+                  placeholder="Escriu el missatge"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                ></textarea>
               </div>
               <div className={styles.submit}>
-              <input
-                className={styles.submitButton}
-                type="submit"
-                value="SEND"
+                <input
+                  className={styles.submitButton}
+                  type="submit"
+                  value="SEND"
                 ></input>
-                <Image src="\arrow_right_black.svg" alt="contacta" width={80} height={40}></Image>
-                </div>
+                <Image
+                  src="\arrow_right_black.svg"
+                  alt="contacta"
+                  width={80}
+                  height={40}
+                ></Image>
+              </div>
             </form>
           </div>
           <div className={styles.mapWrapper}>

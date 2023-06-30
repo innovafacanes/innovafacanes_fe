@@ -16,7 +16,7 @@ export default function Inici({ carousel, reasons, projects }) {
     <>
       <Head>
         <title>Innovafaçanes</title>
-        <meta name="description" content="Innovafaçanes" />
+        <meta name="description" content="A Innovafaçanes construim reformem i restaurem façanes de tot tipus i oferim solucions integrals als teus projectes" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         <link rel="icon" href="/favicon.ico" />

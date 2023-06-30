@@ -9,7 +9,7 @@ import Reason from "../../components/Reason";
 import { fetchHome } from "./api/fetching";
 
 
-export default function Home({ carousel, reasons, projects }) {
+export default function Inici({ carousel, reasons, projects }) {
  
   // 2 objects in JavaScript are equal only if they reference exactly the same object.
   return (

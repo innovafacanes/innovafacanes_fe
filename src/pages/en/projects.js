@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import NavbarEn from "../../components/NavbarEn";
-import { fetchProjectes } from "./api/fetching";
-import FooterEn from "../../components/FooterEn";
+import NavbarEn from "../../../components/NavbarEn";
+import { fetchProjectes } from "../api/fetching";
+import FooterEn from "../../../components/FooterEn";
 import styles from "@/styles/Projectes.module.css";
 import Image from "next/image";
 import Popup from "reactjs-popup";
 
-export default function Projectes({ projects }) {
+export default function Projects({ projects }) {
   const [open, setOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
   const closeModal = () => setOpen(false);

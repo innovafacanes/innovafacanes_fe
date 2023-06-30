@@ -1,11 +1,11 @@
 import React from "react";
-import NavbarEn from "../../components/NavbarEn";
-import { fetchNosaltres } from "./api/fetching";
+import NavbarEn from "../../../components/NavbarEn";
+import { fetchNosaltres } from "../api/fetching";
 import styles from "@/styles/Nosaltres.module.css";
-import FooterEn from "../../components/FooterEn";
+import FooterEn from "../../../components/FooterEn";
 import Image from "next/image";
 
-export default function Nosaltres(props) {
+export default function About(props) {
   const imgWidth = 800;
   const imgHeight = 550;
   return (

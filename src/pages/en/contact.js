@@ -1,13 +1,13 @@
 import styles from "@/styles/Contacte.module.css";
 import Image from "next/image";
 import { useState } from "react";
-import FooterEn from "../../components/FooterEn";
-import NavbarEn from "../../components/NavbarEn";
-import { fetchContacte } from "./api/fetching";
+import FooterEn from "../../../components/FooterEn";
+import NavbarEn from "../../../components/NavbarEn";
+import { fetchContacte } from "../api/fetching";
 
 const { STRAPI_BASE_URL } = process.env;
 
-const Contacte = (props) => {
+const Contact = (props) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -124,7 +124,7 @@ const Contacte = (props) => {
   );
 };
 
-export default Contacte;
+export default Contact;
 
 export async function getStaticProps() {
   return fetchContacte('en');

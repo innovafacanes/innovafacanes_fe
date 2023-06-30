@@ -1,9 +1,9 @@
 import styles from "@/styles/Serveis.module.css";
-import FooterEn from "../../components/FooterEn";
-import NavbarEn from "../../components/NavbarEn";
-import { fetchServeis } from "./api/fetching";
+import FooterEn from "../../../components/FooterEn";
+import NavbarEn from "../../../components/NavbarEn";
+import { fetchServeis } from "../api/fetching";
 
-export default function Serveis({ serveis }) {
+export default function Services({ serveis }) {
   return (
     <>
       <NavbarEn />

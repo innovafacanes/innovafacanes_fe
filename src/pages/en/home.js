@@ -1,15 +1,12 @@
 import styles from "@/styles/Home.module.css";
-import { Inter } from "next/font/google";
 import Head from "next/head";
 import Image from 'next/image';
 import Link from "next/link";
 import FooterEn from "../../../components/FooterEn";
+import HomeCarousel from "../../../components/HomeCarousel";
 import NavbarEn from "../../../components/NavbarEn";
 import Reason from "../../../components/Reason";
-import HomeCarousel from "../../components/HomeCarousel";
-import { fetchHome } from "./api/fetching";
-
-const inter = Inter({ subsets: ["latin"] });
+import { fetchHome } from "../api/fetching";
 
 export default function Home({ carousel, reasons, projects }) {
   // 2 objects in JavaScript are equal only if they reference exactly the same object.

@@ -9,7 +9,6 @@ export default function HomeCarousel (props)  {
 
   useEffect(() => {
     if (emblaApi) {
-      console.log(emblaApi.slideNodes()) // Access API
     }
   }, [emblaApi])
   

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Navbar() {
+export default function NavbarEs() {
   const [mobileMenuState, setMobileMenuState] = useState(false);
 
   const handleMobileMenu = () => {

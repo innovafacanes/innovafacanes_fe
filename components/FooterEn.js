@@ -2,7 +2,7 @@ import styles from "@/styles/Footer.module.css";
 import  Image  from 'next/image';
 import Link from "next/link";
 
-export default function Footer(props) {
+export default function FooterEn(props) {
   return (
     <div className={styles.footerWrapper}>
       <div className={styles.footerActionWrapper}>

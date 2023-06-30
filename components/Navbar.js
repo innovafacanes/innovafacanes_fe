@@ -41,11 +41,11 @@ export default function Navbar() {
           <Link href="/contacte" rel="noopener noreferrer">
             <div className={styles.navItems}>Contacte</div>
           </Link>
-          {/* <div className={styles.langWrapper}>
+           {/* <div className={styles.langWrapper}>
           <Image src="\ca.svg" alt="burger-menu" width={20} height={15} />
           <Link href="/es/contacto" rel="noopener noreferrer"><Image src="\es.svg" alt="burger-menu" width={20} height={15} /></Link>
-          <Link href="/es/new" rel="noopener noreferrer"><Image src="\en.svg" alt="burger-menu" width={20} height={15} /></Link>
-          </div> */}
+          <Link href="/es/contact" rel="noopener noreferrer"><Image src="\en.svg" alt="burger-menu" width={20} height={15} /></Link>
+          </div>  */}
         </div>
       </nav>
       {mobileMenuState ? (
@@ -63,13 +63,13 @@ export default function Navbar() {
           <Link href="/contacte" rel="noopener noreferrer">
             <div className={styles.menuItems}>Contacte</div>
           </Link>
-          {/* <form className={styles.langForm}>
+           {/* <form className={styles.langForm}>
             <select id="country" name="country">
               <option value="au">Català</option>
               <option value="ca">Castellà</option>
               <option value="usa">Anglès</option>
             </select>
-          </form> */}
+          </form>  */}
         </div>
           <div onClick={handleMobileMenu} className={styles.close}><Image src="\close.svg" alt="burger-menu" width={40} height={40} /></div>
         </div>

@@ -1,16 +1,15 @@
 import styles from "@/styles/Home.module.css";
+import { Inter } from "next/font/google";
 import Head from "next/head";
 import Image from 'next/image';
 import Link from "next/link";
-import Footer from "../../components/Footer";
-import HomeCarousel from "../../components/HomeCarousel";
-import Navbar from "../../components/Navbar";
-import Reason from "../../components/Reason";
-import { fetchHome } from "./api/fetching";
+import FooterEs from "../../../components/FooterEs";
+import HomeCarousel from "../../../components/HomeCarousel";
+import NavbarEs from "../../../components/NavbarEs";
+import Reason from "../../../components/Reason";
+import { fetchHome } from "../api/fetching";
 
-
-export default function Home({ carousel, reasons, projects }) {
- 
+export default function Inicio({ carousel, reasons, projects }) {
   // 2 objects in JavaScript are equal only if they reference exactly the same object.
   return (
     <>
@@ -22,13 +21,13 @@ export default function Home({ carousel, reasons, projects }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <>
-        <Navbar></Navbar>
+        <NavbarEs></NavbarEs>
         <main className={styles.main}>
           <section className={styles.homeHeader}>
             <div className={styles.headerTitleWrapper}>
-              <h1>Diferents sistemes.</h1>
-              <h1>Solucions integrals.</h1>
-              <h1>Màxima qualitat.</h1>
+              <h1>Diferentes sistemas.</h1>
+              <h1>Soluciones integrales.</h1>
+              <h1>Máxima calidad.</h1>
             </div>
             <HomeCarousel carousel={carousel}></HomeCarousel>
             {/* <Image src={`${STRAPI_BASE_URL}${carousel[0].url}`} alt={`${carousel[0].alt}`}></Image> */}
@@ -36,11 +35,11 @@ export default function Home({ carousel, reasons, projects }) {
           <section className={styles.homeReasons}>
             <div className={styles.sectionTitleWrapper}>
               <div>
-                <h2 className={styles.sectionTitle}>Per què nosaltres?</h2>
+                <h2 className={styles.sectionTitle}>Por qué nosostros?</h2>
               </div>
               <div className={styles.actionWrapper}>
-              <Link href="/nosaltres" rel="noopener noreferrer"><div className={styles.moreInfo}>MÉS INFORMACIÓ</div></Link>
-                <Link href="/nosaltres" rel="noopener noreferrer">
+              <Link href="/nosotros" rel="noopener noreferrer"><div className={styles.moreInfo}>MÁS INFORMACIÓN</div></Link>
+                <Link href="/nosotros" rel="noopener noreferrer">
                   <Image
                     src="\arrow_right_black.svg"
                     alt="more info"
@@ -65,11 +64,11 @@ export default function Home({ carousel, reasons, projects }) {
           <section className={styles.homePortfolio}>
             <div className={styles.sectionTitleWrapper}>
               <div>
-                <h2 className={styles.sectionTitle}>Projectes</h2>
+                <h2 className={styles.sectionTitle}>Proyectos</h2>
               </div>
               <div className={styles.actionWrapper}>
-              <Link href="/projectes" rel="noopener noreferrer"><div className={styles.moreInfo}>MÉS INFORMACIÓ</div></Link>
-                <Link href="/projectes" rel="noopener noreferrer">
+              <Link href="/proyectos" rel="noopener noreferrer"><div className={styles.moreInfo}>MÁS INFORMACIÓN</div></Link>
+                <Link href="/proyectos" rel="noopener noreferrer">
                   <Image
                     src="\arrow_right_black.svg"
                     alt="more info"
@@ -85,7 +84,7 @@ export default function Home({ carousel, reasons, projects }) {
                   index < 6 ? 
                   
                 <div className={styles[`box${index}`]} key={index}>
-                <Link href="/projectes" rel="noopener noreferrer">
+                <Link href="/proyectos" rel="noopener noreferrer">
                 <Image
                   className={styles.projectImg}
                   src={`${project.images.data[0].attributes.url}`}
@@ -100,7 +99,7 @@ export default function Home({ carousel, reasons, projects }) {
               )})}
             </div>
           </section>
-          <Footer></Footer>
+          <FooterEs></FooterEs>
         </main>
       </>
     </>
@@ -108,5 +107,5 @@ export default function Home({ carousel, reasons, projects }) {
 }
 
 export async function getStaticProps() {
-  return fetchHome('ca');
+  return fetchHome('es');
 }

@@ -7,14 +7,14 @@ export default function Footer(props) {
     <div className={styles.footerWrapper}>
       <div className={styles.footerActionWrapper}>
         <div className={styles.actionWrapper}>
-        <Link href="/contacte" rel="noopener noreferrer"><h2 className={styles.footerAction}>CONTACTA AMB NOSALTRES</h2></Link>
-        <Link href="/contacte" rel="noopener noreferrer"><Image src="\arrow_right.svg" alt="contacta" width={80} height={40} className={styles.arrow}></Image></Link>
+        <Link href="/contact" rel="noopener noreferrer"><h2 className={styles.footerAction}>CONTACT US</h2></Link>
+        <Link href="/contact" rel="noopener noreferrer"><Image src="\arrow_right.svg" alt="contacta" width={80} height={40} className={styles.arrow}></Image></Link>
         </div>
       </div>
       <div className={styles.footerInfo}>
         <div className={styles.leftInfo}>
-          <span>AVÍS LEGAL</span>
-          <span>POLÍTICA DE COOKIES</span>
+          <span>LEGAL WARNING</span>
+          <span>COOKIES POLICY</span>
         </div>
         <div className={styles.rightInfo}>
           <span>INNOVA FAÇANES S.L.</span>

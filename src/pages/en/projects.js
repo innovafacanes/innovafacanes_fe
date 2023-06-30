@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
+import NavbarEn from "../../components/NavbarEn";
 import { fetchProjectes } from "./api/fetching";
-import Footer from "../../components/Footer";
+import FooterEn from "../../components/FooterEn";
 import styles from "@/styles/Projectes.module.css";
 import Image from "next/image";
 import Popup from "reactjs-popup";
@@ -13,9 +13,9 @@ export default function Projectes({ projects }) {
 
   return (
     <>
-      <Navbar />
+      <NavbarEn />
       <div className={styles.mainProjectes}>
-        <h1>PROJECTES</h1>
+        <h1>PROJECTS</h1>
         <div className={styles.projectsWrapper}>
           {projects.map((project, index) => (
             <div key={index}>
@@ -97,11 +97,11 @@ export default function Projectes({ projects }) {
           ))}
         </div>
       </div>
-      <Footer />
+      <FooterEn />
     </>
   );
 }
 
 export async function getStaticProps() {
-  return fetchProjectes('ca');
+  return fetchProjectes('en');
 }

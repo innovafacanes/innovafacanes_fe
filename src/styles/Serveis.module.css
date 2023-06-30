@@ -1,0 +1,64 @@
+.main{
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 10rem;
+    overflow-x: hidden;
+}
+
+.mainTitle{
+    margin-bottom: 4rem;
+}
+
+.sectionTitleWrapper{
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-weight: bold;
+  }
+
+  .actionWrapper{
+    display: flex;
+  }
+
+.servicesWrapper{
+    gap: 5rem;
+}
+
+.serviceWrapper{
+    margin-top: 5rem;
+    padding-left: 5rem;
+    
+}
+
+/* .serviceWrapper:nth-child(even){
+    padding-top: 20rem;
+} */
+
+
+
+.serviceTitle{
+    margin-bottom: 2rem;
+}
+
+.serviceDesc{
+    max-width: 800px;
+}
+
+
+@media (max-width: 750px) {
+    .main{
+        padding: 10rem 5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .serviceWrapper{
+        padding-left: 0rem;
+    }
+    .main{
+        padding: 10rem 2rem;
+    }
+}

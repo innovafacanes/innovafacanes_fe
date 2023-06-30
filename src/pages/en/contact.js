@@ -1,8 +1,8 @@
 import styles from "@/styles/Contacte.module.css";
 import Image from "next/image";
 import { useState } from "react";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
+import FooterEn from "../../components/FooterEn";
+import NavbarEn from "../../components/NavbarEn";
 import { fetchContacte } from "./api/fetching";
 
 const { STRAPI_BASE_URL } = process.env;
@@ -33,10 +33,10 @@ const Contacte = (props) => {
 
   return (
     <>
-      <Navbar />
+      <NavbarEn />
       <main className={styles.mainContacte}>
         <div className={styles.firstDiv}>
-          <h1 className={styles.contactTitle}>CONTACTA AMB NOSALTRES</h1>
+          <h1 className={styles.contactTitle}>CONTACT US</h1>
           <div className={styles.infoWrapper}>
             <h2 className={styles.infoText}>{props.contactInfo.nom}</h2>
             <h2 className={styles.infoText}>{props.contactInfo.direccio}</h2>
@@ -85,7 +85,7 @@ const Contacte = (props) => {
                   id="message"
                   name="message"
                   className={styles.messageBox}
-                  placeholder="Escriu el missatge"
+                  placeholder="Write your message"
                   value={formData.message}
                   onChange={handleInputChange}
                   required
@@ -95,7 +95,7 @@ const Contacte = (props) => {
                 <input
                   className={styles.submitButton}
                   type="submit"
-                  value="ENVIAR"
+                  value="SEND"
                 ></input>
                 <Image
                   src="\arrow_right_black.svg"
@@ -119,7 +119,7 @@ const Contacte = (props) => {
           </div>
         </div>
       </main>
-      <Footer></Footer>
+      <FooterEn></FooterEn>
     </>
   );
 };
@@ -127,5 +127,5 @@ const Contacte = (props) => {
 export default Contacte;
 
 export async function getStaticProps() {
-  return fetchContacte('ca');
+  return fetchContacte('en');
 }

@@ -1,13 +1,13 @@
 import styles from "@/styles/Contacte.module.css";
 import Image from "next/image";
 import { useState } from "react";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
-import { fetchContacte } from "./api/fetching";
+import FooterEs from "../../../components/FooterEs";
+import NavbarEs from "../../../components/NavbarEs";
+import { fetchContacte } from "../api/fetching";
 
 const { STRAPI_BASE_URL } = process.env;
 
-const Contacte = (props) => {
+const Contacto = (props) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,10 +33,10 @@ const Contacte = (props) => {
 
   return (
     <>
-      <Navbar />
+      <NavbarEs />
       <main className={styles.mainContacte}>
         <div className={styles.firstDiv}>
-          <h1 className={styles.contactTitle}>CONTACTA AMB NOSALTRES</h1>
+          <h1 className={styles.contactTitle}>CONTACTA CON NOSOTROS</h1>
           <div className={styles.infoWrapper}>
             <h2 className={styles.infoText}>{props.contactInfo.nom}</h2>
             <h2 className={styles.infoText}>{props.contactInfo.direccio}</h2>
@@ -50,7 +50,7 @@ const Contacte = (props) => {
               <div className={styles.namemail}>
                 <div>
                   <div className={styles.label}>
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="name">Nombre:</label>
                   </div>
                   <input
                     type="text"
@@ -79,13 +79,13 @@ const Contacte = (props) => {
                 </div>
               </div>
               <div className={styles.message}>
-                <label htmlFor="message">Text:</label>
+                <label htmlFor="message">Texto:</label>
                 <textarea
                   type="text"
                   id="message"
                   name="message"
                   className={styles.messageBox}
-                  placeholder="Escriu el missatge"
+                  placeholder="Escribe el mensaje"
                   value={formData.message}
                   onChange={handleInputChange}
                   required
@@ -119,13 +119,13 @@ const Contacte = (props) => {
           </div>
         </div>
       </main>
-      <Footer></Footer>
+      <FooterEs></FooterEs>
     </>
   );
 };
 
-export default Contacte;
+export default Contacto;
 
 export async function getStaticProps() {
-  return fetchContacte('ca');
+  return fetchContacte('es');
 }

@@ -2,21 +2,21 @@ import { getContactInfo } from "@/model/getContactData";
 import { getCarouselPaths, getReasons } from "@/model/getHomeData";
 import { getNosaltresInfo } from "@/model/getNosaltresData";
 import { getProjectData } from "@/model/getProjectData";
+import { getServeis } from "@/model/getServeis";
 
 const { STRAPI_BASE_URL } = process.env;
 
-export async function fetchHome() {
-  const response = await fetch(`${STRAPI_BASE_URL}/home?populate=*`);
+export async function fetchHome(lang) {
+  const response = await fetch(`${STRAPI_BASE_URL}/home?locale=${lang}&populate=*`);
   const json = await response.json();
   const data = json.data;
   const reasons = getReasons(data);
   const carousel = getCarouselPaths(data);
-  const response2 = await fetch(`${STRAPI_BASE_URL}/projects?populate=*`);
+  const response2 = await fetch(`${STRAPI_BASE_URL}/projects?locale=${lang}&populate=*`);
   const json2 = await response2.json();
   const data2 = json2.data;
   const projects = getProjectData(data2);
 
-  console.log(data);
   return {
     props: {
       reasons,
@@ -26,8 +26,8 @@ export async function fetchHome() {
   };
 }
 
-export async function fetchNosaltres() {
-  const response = await fetch(`${STRAPI_BASE_URL}/nosaltres?populate=deep`);
+export async function fetchNosaltres(lang) {
+  const response = await fetch(`${STRAPI_BASE_URL}/nosaltres?locale=${lang}&populate=deep`);
   const json = await response.json();
   const data = json.data;
   const nosaltresInfo = getNosaltresInfo(data);
@@ -38,11 +38,10 @@ export async function fetchNosaltres() {
   };
 }
 
-export async function fetchContacte() {
-  const response = await fetch(`${STRAPI_BASE_URL}/contacte?populate=*`);
+export async function fetchContacte(lang) {
+  const response = await fetch(`${STRAPI_BASE_URL}/contacte?locale=${lang}&populate=*`);
   const json = await response.json();
   const data = json.data;
-  console.log(data + "eey");
   const contactInfo = getContactInfo(data);
   return {
     props: {
@@ -51,14 +50,31 @@ export async function fetchContacte() {
   };
 }
 
-export async function fetchProjectes() {
-  const response = await fetch(`${STRAPI_BASE_URL}/projects?populate=*`);
+export async function fetchProjectes(lang) {
+  const response = await fetch(`${STRAPI_BASE_URL}/projects?locale=${lang}&populate=*`);
   const json = await response.json();
   const data = json.data;
   const projects = getProjectData(data);
   return {
     props: {
       projects,
+    },
+  };
+}
+
+
+
+export async function fetchServeis(lang) {
+  const response = await fetch(`${STRAPI_BASE_URL}/servei?locale=${lang}&populate=*`);
+  const json = await response.json();
+  const data = json.data;
+  const serveis = getServeis(data);
+  
+  
+
+  return {
+    props: {
+      serveis
     },
   };
 }

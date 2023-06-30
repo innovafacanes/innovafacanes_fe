@@ -88,3 +88,11 @@
 }
 
 
+
+.langWrapper{
+    margin-left: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}

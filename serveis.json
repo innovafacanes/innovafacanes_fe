@@ -1,0 +1,61 @@
+{
+  "data": {
+    "id": 1,
+    "attributes": {
+      "createdAt": "2023-06-28T15:57:12.988Z",
+      "updatedAt": "2023-06-28T16:11:41.643Z",
+      "publishedAt": "2023-06-28T16:11:41.638Z",
+      "locale": "ca",
+      "servei": [
+        {
+          "id": 1,
+          "titol_servei": "Façana ventilada",
+          "descripcio_servei": "Façanes ventilades amb qualsevol tipus de material de tancament: \n- Pedra natural\n- Ceràmica (petit o gran format)\n- Ceràmica extrussionada\n- Panell fenòlic o de resines sintètiques\n- Composite\n- Fibrociment \nAmb la possibilitat d’ésser instal·lats amb ancoratge ocult o vist. També realitzem marquesines, lames fixes o orientables, separadors i baranes de balcons, sostres d’exterior, etc. Podem instal·lar des de l’estructura portant, fins l’aplacat o revestiment exterior.\n"
+        },
+        {
+          "id": 2,
+          "titol_servei": "Aïllament",
+          "descripcio_servei": "Aïllaments per façana ventilada, ja sigui amb panell rígid o semi rígid amb poliestirè extruït, aïllament amb fibra mineral o llana de roca, sempre fixat amb elements mecànics.\n"
+        },
+        {
+          "id": 3,
+          "titol_servei": "Remats i coronació d'edificis",
+          "descripcio_servei": "Instal·lem qualsevol tipus de remat de finestra (escopidors, dintells i brancals), remats entre façanes, de junta de dilatació, coronació d’edificis… per acabar i entregar la façana completa, ja sigui amb el mateix material de façana o fabricat en alumini, acer galvanitzat lacat, etc."
+        },
+        {
+          "id": 4,
+          "titol_servei": "Tancaments en sec",
+          "descripcio_servei": "Tancaments de façana en sec amb sistema Aquapanel de Knauf o similar. Aquest tancament permet construir parets externes enlloc dels mètodes de construcció tradicionals, amb un aprofitament superior de l’espai, reduint el temps d’execució i millorant l’aïllament tèrmic i acústic.\n"
+        },
+        {
+          "id": 5,
+          "titol_servei": "Mampares divisòries, terres tècnics, revestiments i aplacats d’interior",
+          "descripcio_servei": "Instal·lem divisòries, tancaments, revestiments i aplacats d’interiors:\n- Envans, trasdosats, sostres… amb plaques de guix laminat.\n- Revestiments i aplacats d’interior amb panell fenòlic o de resines sintètiques.\n- Mampares divisòries de panell fenòlic per banys i dutxes.\n- Terres tècnics autoportants.\n"
+        }
+      ],
+      "localizations": {
+        "data": [
+          {
+            "id": 3,
+            "attributes": {
+              "createdAt": "2023-06-28T16:05:02.487Z",
+              "updatedAt": "2023-06-28T16:11:48.446Z",
+              "publishedAt": "2023-06-28T16:11:48.441Z",
+              "locale": "en"
+            }
+          },
+          {
+            "id": 2,
+            "attributes": {
+              "createdAt": "2023-06-28T16:00:29.401Z",
+              "updatedAt": "2023-06-28T16:11:44.695Z",
+              "publishedAt": "2023-06-28T16:11:44.692Z",
+              "locale": "es"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "meta": {}
+}

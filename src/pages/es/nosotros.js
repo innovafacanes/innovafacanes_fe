@@ -1,19 +1,19 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
-import { fetchNosaltres } from "./api/fetching";
+import NavbarEs from "../../../components/NavbarEs";
+import { fetchNosaltres } from "../api/fetching";
 import styles from "@/styles/Nosaltres.module.css";
-import Footer from "../../components/Footer";
+import FooterEs from "../../../components/FooterEs";
 import Image from "next/image";
 
-export default function Nosaltres(props) {
+export default function Nosotros(props) {
   const imgWidth = 800;
   const imgHeight = 550;
   return (
     <>
-      <Navbar />
+      <NavbarEs />
       <div className={styles.nosaltresWrapper}>
         <div className={styles.mainTitle}>
-          <h1>¿QUI SOM?</h1>
+          <h1>¿QUIÉNES SOMOS?</h1>
         </div>
         <div className={styles.sectionWrapper}>
           {/*FIRST*/}
@@ -60,11 +60,11 @@ export default function Nosaltres(props) {
           <h2 className={styles.themeTitle}>{props.nosaltresInfo.title}</h2>
         </div>
       </div>
-      <Footer />
+      <FooterEs />
     </>
   );
 }
 
 export async function getStaticProps() {
-  return fetchNosaltres('ca');
+  return fetchNosaltres('es');
 }

@@ -7,13 +7,13 @@ export default function Footer(props) {
     <div className={styles.footerWrapper}>
       <div className={styles.footerActionWrapper}>
         <div className={styles.actionWrapper}>
-        <Link href="/contacte" rel="noopener noreferrer"><h2 className={styles.footerAction}>CONTACTA AMB NOSALTRES</h2></Link>
-        <Link href="/contacte" rel="noopener noreferrer"><Image src="\arrow_right.svg" alt="contacta" width={80} height={40} className={styles.arrow}></Image></Link>
+        <Link href="/contacto" rel="noopener noreferrer"><h2 className={styles.footerAction}>CONTACTA CON NOSOTROS</h2></Link>
+        <Link href="/contacto" rel="noopener noreferrer"><Image src="\arrow_right.svg" alt="contacta" width={80} height={40} className={styles.arrow}></Image></Link>
         </div>
       </div>
       <div className={styles.footerInfo}>
         <div className={styles.leftInfo}>
-          <span>AVÍS LEGAL</span>
+          <span>AVISO LEGAL</span>
           <span>POLÍTICA DE COOKIES</span>
         </div>
         <div className={styles.rightInfo}>

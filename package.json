@@ -9,12 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^1.0.0-beta.13",
     "embla-carousel-react": "^8.0.0-rc07",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "flag-icons": "^6.6.6",
     "next": "13.2.4",
-    "next-i18next": "^13.2.2",
+    "next-i18next": "^13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "reactjs-popup": "^2.0.5"

@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
-import { fetchProjectes } from "./api/fetching";
-import Footer from "../../components/Footer";
+import NavbarEs from "../../../components/NavbarEs";
+import { fetchProjectes } from "../api/fetching";
+import FooterEs from "../../../components/FooterEs";
 import styles from "@/styles/Projectes.module.css";
 import Image from "next/image";
 import Popup from "reactjs-popup";
 
-export default function Projectes({ projects }) {
+export default function Proyectos({ projects }) {
   const [open, setOpen] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
   const closeModal = () => setOpen(false);
 
   return (
     <>
-      <Navbar />
+      <NavbarEs />
       <div className={styles.mainProjectes}>
-        <h1>PROJECTES</h1>
+        <h1>PROYECTOS</h1>
         <div className={styles.projectsWrapper}>
           {projects.map((project, index) => (
             <div key={index}>
@@ -97,11 +97,11 @@ export default function Projectes({ projects }) {
           ))}
         </div>
       </div>
-      <Footer />
+      <FooterEs />
     </>
   );
 }
 
 export async function getStaticProps() {
-  return fetchProjectes('ca');
+  return fetchProjectes('es');
 }

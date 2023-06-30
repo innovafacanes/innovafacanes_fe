@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "../../components/Navbar";
+import NavbarEn from "../../components/NavbarEn";
 import { fetchNosaltres } from "./api/fetching";
 import styles from "@/styles/Nosaltres.module.css";
-import Footer from "../../components/Footer";
+import FooterEn from "../../components/FooterEn";
 import Image from "next/image";
 
 export default function Nosaltres(props) {
@@ -10,7 +10,7 @@ export default function Nosaltres(props) {
   const imgHeight = 550;
   return (
     <>
-      <Navbar />
+      <NavbarEn />
       <div className={styles.nosaltresWrapper}>
         <div className={styles.mainTitle}>
           <h1>¿QUI SOM?</h1>
@@ -60,7 +60,7 @@ export default function Nosaltres(props) {
           <h2 className={styles.themeTitle}>{props.nosaltresInfo.title}</h2>
         </div>
       </div>
-      <Footer />
+      <FooterEn />
     </>
   );
 }

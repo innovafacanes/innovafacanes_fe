@@ -1,14 +1,14 @@
 import styles from "@/styles/Serveis.module.css";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
+import FooterEn from "../../components/FooterEn";
+import NavbarEn from "../../components/NavbarEn";
 import { fetchServeis } from "./api/fetching";
 
 export default function Serveis({ serveis }) {
   return (
     <>
-      <Navbar />
+      <NavbarEn />
       <div className={styles.main}>
-        <h1 className={styles.mainTitle}>QUÈ OFERIM?</h1>
+        <h1 className={styles.mainTitle}>WHAT WE OFFER?</h1>
         <div className={styles.servicesWrapper}>
           {serveis.map(({ serviceTitle, serviceDesc }, index) => (
             <div key={index} className={styles.serviceWrapper}>
@@ -18,11 +18,11 @@ export default function Serveis({ serveis }) {
           ))}
         </div>
       </div>
-      <Footer />
+      <FooterEn />
     </>
   );
 }
 
 export async function getStaticProps() {
-  return fetchServeis("ca");
+  return fetchServeis("en");
 }

@@ -41,11 +41,11 @@ export default function Navbar() {
           <Link href="/contacte" rel="noopener noreferrer">
             <div className={styles.navItems}>Contacte</div>
           </Link>
-           {/* <div className={styles.langWrapper}>
+            <div className={styles.langWrapper}>
           <Image src="\ca.svg" alt="burger-menu" width={20} height={15} />
-          <Link href="/es/contacto" rel="noopener noreferrer"><Image src="\es.svg" alt="burger-menu" width={20} height={15} /></Link>
-          <Link href="/es/contact" rel="noopener noreferrer"><Image src="\en.svg" alt="burger-menu" width={20} height={15} /></Link>
-          </div>  */}
+          <Link href="/contacto" locale='es' rel="noopener noreferrer"><Image src="\es.svg" alt="burger-menu" width={20} height={15} /></Link>
+          <Link href="/contact" locale='en' rel="noopener noreferrer"><Image src="\en.svg" alt="burger-menu" width={20} height={15} /></Link>
+          </div> 
         </div>
       </nav>
       {mobileMenuState ? (

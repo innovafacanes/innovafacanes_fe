@@ -41,13 +41,11 @@ export default function NavbarEn() {
           <Link href="/en/contact" rel="noopener noreferrer">
             <div className={styles.navItems}>Contact</div>
           </Link>
-          <form className={styles.langForm}>
-            <select id="country" name="country">
-            <option value="ca"><Link href="/">Catalan</Link></option>
-              <option value="es"><Link href="/es/home">Spanish</Link></option>
-              <option value="en"><Link href="/en/home">English</Link></option>
-            </select>
-          </form>
+          <div className={styles.langWrapper}>
+          <Link href="/" locale='ca' rel="noopener noreferrer"><Image src="\ca.svg" alt="burger-menu" width={20} height={15} /></Link>
+          <Link href="/" locale='es' rel="noopener noreferrer"><Image src="\es.svg" alt="burger-menu" width={20} height={15} /></Link>
+          <Image src="\en.svg" alt="burger-menu" width={20} height={15} />
+          </div> 
         </div>
       </nav>
       {mobileMenuState ? (

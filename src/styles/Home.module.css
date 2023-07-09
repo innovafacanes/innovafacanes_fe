@@ -180,7 +180,7 @@ margin-right: 2rem;
 
 .box4 { grid-area: box4;
   position: relative; 
-  height: 50%;
+  height: 150%;
 align-self: start;}
 
 .box5 { grid-area: box5; 

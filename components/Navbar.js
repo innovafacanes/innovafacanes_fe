@@ -1,10 +1,12 @@
+import LanguageContext from "@/store/language/context/LanguageContext";
 import styles from "@/styles/Navbar.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 export default function Navbar() {
   const [mobileMenuState, setMobileMenuState] = useState(false);
+  const { setChosenLanguage } = useContext(LanguageContext);
 
   const handleMobileMenu = () => {
     setMobileMenuState((mobileMenuState) => !mobileMenuState);
@@ -20,7 +22,6 @@ export default function Navbar() {
             width={240}
             height={40}
             className={styles.logo}
-            
           ></Image>
         </Link>
       </div>
@@ -41,37 +42,49 @@ export default function Navbar() {
           <Link href="/contacte" rel="noopener noreferrer">
             <div className={styles.navItems}>Contacte</div>
           </Link>
-            {/* <div className={styles.langWrapper}>
-          <Image src="\ca.svg" alt="burger-menu" width={20} height={15} />
-          <Link href="/contacto" locale='es' rel="noopener noreferrer"><Image src="\es.svg" alt="burger-menu" width={20} height={15} /></Link>
-          <Link href="/contact" locale='en' rel="noopener noreferrer"><Image src="\en.svg" alt="burger-menu" width={20} height={15} /></Link>
-          </div>  */}
+          <div className={styles.langWrapper}>
+            <button onClick={() => setChosenLanguage("ca")}>
+              <Image src="\ca.svg" alt="burger-menu" width={20} height={15} />
+            </button>
+            <button onClick={() => setChosenLanguage("es")}>
+              <Image src="\es.svg" alt="burger-menu" width={20} height={15} />
+            </button>
+            <button onClick={() => setChosenLanguage("en")}>
+              <Image src="\en.svg" alt="burger-menu" width={20} height={15} />
+            </button>
+          </div>
         </div>
       </nav>
       {mobileMenuState ? (
         <div className={styles.mobileMenu}>
           <div className={styles.menuTagsWrapper}>
-          <Link href="/serveis" rel="noopener noreferrer">
-            <div className={styles.menuItems}>Serveis</div>
-          </Link>
-          <Link href="/projectes" rel="noopener noreferrer">
-            <div className={styles.menuItems}>Projectes</div>
-          </Link>
-          <Link href="/nosaltres" rel="noopener noreferrer">
-            <div className={styles.menuItems}>Nosaltres</div>
-          </Link>
-          <Link href="/contacte" rel="noopener noreferrer">
-            <div className={styles.menuItems}>Contacte</div>
-          </Link>
-           {/* <form className={styles.langForm}>
-            <select id="country" name="country">
-              <option value="au">Català</option>
-              <option value="ca">Castellà</option>
-              <option value="usa">Anglès</option>
-            </select>
-          </form>  */}
-        </div>
-          <div onClick={handleMobileMenu} className={styles.close}><Image src="\close.svg" alt="burger-menu" width={40} height={40} /></div>
+            <Link href="/serveis" rel="noopener noreferrer">
+              <div className={styles.menuItems}>Serveis</div>
+            </Link>
+            <Link href="/projectes" rel="noopener noreferrer">
+              <div className={styles.menuItems}>Projectes</div>
+            </Link>
+            <Link href="/nosaltres" rel="noopener noreferrer">
+              <div className={styles.menuItems}>Nosaltres</div>
+            </Link>
+            <Link href="/contacte" rel="noopener noreferrer">
+              <div className={styles.menuItems}>Contacte</div>
+            </Link>
+            <div className={styles.langWrapper}>
+              <button onClick={() => setChosenLanguage("ca")}>
+                <Image src="\ca.svg" alt="burger-menu" width={20} height={15} />
+              </button>
+              <button onClick={() => setChosenLanguage("es")}>
+                <Image src="\es.svg" alt="burger-menu" width={20} height={15} />
+              </button>
+              <button onClick={() => setChosenLanguage("en")}>
+                <Image src="\en.svg" alt="burger-menu" width={20} height={15} />
+              </button>
+            </div>
+          </div>
+          <div onClick={handleMobileMenu} className={styles.close}>
+            <Image src="\close.svg" alt="burger-menu" width={40} height={40} />
+          </div>
         </div>
       ) : (
         <></>

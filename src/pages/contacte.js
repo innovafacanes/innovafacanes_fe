@@ -1,13 +1,49 @@
 import styles from "@/styles/Contacte.module.css";
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
-import { fetchContacte } from "./api/fetching";
+import useStrapiApi, { fetchContacte } from "./api/fetching";
+import LanguageContext from "@/store/language/context/LanguageContext";
 
-const { STRAPI_BASE_URL } = process.env;
+const apiBaseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
-const Contacte = (props) => {
+const Contacte = () => {
+  const { language } = useContext(LanguageContext);
+  const { fetchContacte } = useStrapiApi();
+  const [title, setTitle] = useState(["Contacta amb nosaltres"]);
+  const [contact, setContact] = useState([
+    { nom: "", direccio: "", tlf: "", mbl: "", email: "" },
+  ]);
+
+  useEffect(() => {
+    (async () => {
+      const {
+        props: { contactInfo },
+      } = await fetchContacte(language);
+
+      setContact(contactInfo);
+    })();
+  }, [fetchContacte, language]);
+
+  useEffect(() => {
+    changeTitle(language);
+  }, [language]);
+
+  const changeTitle = (language) => {
+    if (language === "ca") {
+      setTitle(["Contacta amb nosaltres"]);
+    }
+
+    if (language === "es") {
+      setTitle(["Contacta con nosotros"]);
+    }
+
+    if (language === "en") {
+      setTitle(["Contact with us"]);
+    }
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,7 +60,7 @@ const Contacte = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${STRAPI_BASE_URL}/ezforms/submit`, {
+    fetch(`${apiBaseUrl}/ezforms/submit`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ formData: formData }),
@@ -36,12 +72,12 @@ const Contacte = (props) => {
       <Navbar />
       <main className={styles.mainContacte}>
         <div className={styles.firstDiv}>
-          <h1 className={styles.contactTitle}>CONTACTA AMB NOSALTRES</h1>
+          <h1 className={styles.contactTitle}>{title}</h1>
           <div className={styles.infoWrapper}>
-            <h2 className={styles.infoText}>{props.contactInfo.nom}</h2>
-            <h2 className={styles.infoText}>{props.contactInfo.direccio}</h2>
-            <h2 className={styles.infoText}>{props.contactInfo.tlf}</h2>
-            <h2 className={styles.infoText}>{props.contactInfo.mbl}</h2>
+            <h2 className={styles.infoText}>{contact.nom}</h2>
+            <h2 className={styles.infoText}>{contact.direccio}</h2>
+            <h2 className={styles.infoText}>{contact.tlf}</h2>
+            <h2 className={styles.infoText}>{contact.mbl}</h2>
           </div>
         </div>
         <div className={styles.secondDiv}>
@@ -125,7 +161,3 @@ const Contacte = (props) => {
 };
 
 export default Contacte;
-
-export async function getStaticProps() {
-  return fetchContacte('ca');
-}

@@ -37,69 +37,81 @@ const useStrapiApi = () => {
     [apiBaseUrl]
   );
 
-  const fetchNosaltres = async (lang) => {
-    let language = "";
-    language = lang;
-    const response = await fetch(
-      `${apiBaseUrl}/nosaltres?locale=${language}&populate=deep`
-    );
-    const json = await response.json();
-    const data = json.data;
-    const nosaltresInfo = getNosaltresInfo(data);
-    return {
-      props: {
-        nosaltresInfo,
-      },
-    };
-  };
+  const fetchNosaltres = useCallback(
+    async (lang) => {
+      let language = "";
+      language = lang;
+      const response = await fetch(
+        `${apiBaseUrl}/nosaltres?locale=${language}&populate=deep`
+      );
+      const json = await response.json();
+      const data = json.data;
+      const nosaltresInfo = getNosaltresInfo(data);
+      return {
+        props: {
+          nosaltresInfo,
+        },
+      };
+    },
+    [apiBaseUrl]
+  );
 
-  const fetchContacte = async (lang) => {
-    let language = "";
-    language = lang;
-    const response = await fetch(
-      `${apiBaseUrl}/contacte?locale=${language}&populate=*`
-    );
-    const json = await response.json();
-    const data = json.data;
-    const contactInfo = getContactInfo(data);
-    return {
-      props: {
-        contactInfo,
-      },
-    };
-  };
+  const fetchContacte = useCallback(
+    async (lang) => {
+      let language = "";
+      language = lang;
+      const response = await fetch(
+        `${apiBaseUrl}/contacte?locale=${language}&populate=*`
+      );
+      const json = await response.json();
+      const data = json.data;
+      const contactInfo = getContactInfo(data);
+      return {
+        props: {
+          contactInfo,
+        },
+      };
+    },
+    [apiBaseUrl]
+  );
 
-  const fetchProjectes = async (lang) => {
-    let language = "";
-    language = lang;
-    const response = await fetch(
-      `${apiBaseUrl}/projects?locale=${language}&populate=*`
-    );
-    const json = await response.json();
-    const data = json.data;
-    const projects = getProjectData(data);
-    return {
-      props: {
-        projects,
-      },
-    };
-  };
+  const fetchProjectes = useCallback(
+    async (lang) => {
+      let language = "";
+      language = lang;
+      const response = await fetch(
+        `${apiBaseUrl}/projects?locale=${language}&populate=*`
+      );
+      const json = await response.json();
+      const data = json.data;
+      const projects = getProjectData(data);
+      return {
+        props: {
+          projects,
+        },
+      };
+    },
+    [apiBaseUrl]
+  );
 
-  const fetchServeis = async (lang) => {
-    let language = "";
-    language = lang;
-    const response = await fetch(
-      `${apiBaseUrl}/servei?locale=${language}&populate=*`
-    );
-    const json = await response.json();
-    const data = json.data;
-    const serveis = getServeis(data);
-    return {
-      props: {
-        serveis,
-      },
-    };
-  };
+  const fetchServeis = useCallback(
+    async (lang) => {
+      let language = "";
+      language = lang;
+      const response = await fetch(
+        `${apiBaseUrl}/servei?locale=${language}&populate=*`
+      );
+      const json = await response.json();
+      const data = json.data;
+      const serveis = getServeis(data);
+      return {
+        props: {
+          serveis,
+        },
+      };
+    },
+    [apiBaseUrl]
+  );
 
   return {
     fetchHome,

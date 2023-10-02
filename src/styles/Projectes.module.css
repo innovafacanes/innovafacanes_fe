@@ -1,164 +1,158 @@
-
-
-.mainProjectes{
-    display: flex;
-    align-items: space-evenly;
-    flex-direction: column;
-    width: 100vw;
-    padding: 10rem 10rem;
+.mainProjectes {
+  display: flex;
+  align-items: space-evenly;
+  flex-direction: column;
+  width: 100vw;
+  padding: 10rem 10rem;
 }
 
-.projectsWrapper{
-    display: flex;
-    margin-top: 5rem;
-    justify-content: center;
-    gap: 4rem;
-    flex-wrap: wrap;
+.projectsWrapper {
+  display: flex;
+  margin-top: 5rem;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
 }
 
-.projectWrapper{
-    position: relative;
-    -webkit-filter: brightness(100%);
+.projectWrapper {
+  position: relative;
+  -webkit-filter: brightness(100%);
 }
-.projectWrapper:hover{
-    
-    cursor: pointer;
+.projectWrapper:hover {
+  cursor: pointer;
 }
-.projectImg:hover{
-    -webkit-filter: brightness(50%);
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-    -ms-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+.projectImg:hover {
+  -webkit-filter: brightness(50%);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
-.projectWrapper:hover .projectTitle{
-    visibility: visible;
-    opacity: 1;
-    z-index: 10;
-}
-
-.projectTitle{
-    font-size: 2rem;
-    color: white;
-    position: absolute;
-    left: 1.2rem;
-    bottom: 1.2rem;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s ease-in-out;
+.projectWrapper:hover .projectTitle {
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
 }
 
-.detailImgCarousel{
-    width: 600px;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    margin-right: 1rem;
+.projectTitle {
+  font-size: 2rem;
+  color: white;
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1.2rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
 }
 
-
-
-.projectDetailImg{
-    position: absolute;
-    border-radius: 0rem;
-    object-fit: cover;
+.detailImgCarousel {
+  width: 600px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 1rem;
 }
 
-.detailText{
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding-top: 2rem;
+.projectDetailImg {
+  position: absolute;
+  border-radius: 0rem;
+  object-fit: cover;
 }
 
-.controls{
-    position: absolute;
-   
+.detailText {
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 2rem;
 }
 
-.prevBtn, .nextBtn{
-    background-color: white;
-    padding: .5rem 1.2rem;
-    border: none;
-    color: #181818;
-}
-.prevBtn:hover, .nextBtn:hover{
-    background-color: #181818;
-    color: white;
-    cursor: pointer;
+.controls {
+  position: absolute;
 }
 
-
-.close{
-    cursor: pointer;
-    font-size: 4rem;
-    font-weight: bold;
-    margin: .5rem;
-    margin-top: 0;
-    padding-top: 0;
+.prevBtn,
+.nextBtn {
+  background-color: white;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  color: #181818;
+}
+.prevBtn:hover,
+.nextBtn:hover {
+  background-color: #181818;
+  color: white;
+  cursor: pointer;
 }
 
-.popupContentWrapper{
-    display: flex;
-    justify-content: space-between;
+.close {
+  cursor: pointer;
+  font-size: 4rem;
+  font-weight: bold;
+  margin: 0.5rem;
+  margin-top: 0;
+  padding-top: 0;
 }
 
+.popupContentWrapper {
+  display: flex;
+  justify-content: space-between;
+}
 
 @media (max-width: 1300px) {
-    .mainProjectes{
-        padding: 10rem 5rem;
-    }
+  .mainProjectes {
+    padding: 10rem 5rem;
+  }
 }
 
 @media (max-width: 1150px) {
-    .mainProjectes{
-        padding: 10rem 5rem;
-    }
-    .projectImg{
-        width: 350px;
-        height: 350px;
-    }
+  .mainProjectes {
+    padding: 10rem 5rem;
+  }
+  .projectImg {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+  }
 }
 @media (max-width: 450px) {
-    .mainProjectes{
-        padding: 10rem 3rem;
-    }
-    .projectImg{
-        width: 275px;
-        height: 275px;
-    }
+  .mainProjectes {
+    padding: 10rem 3rem;
+  }
+  .projectImg {
+    width: 275px;
+    height: 275px;
+    object-fit: cover;
+  }
 }
-
-
 
 @media (max-width: 1500px) {
-    .projectDetailImg{
-        width: 400px;
-        height: 375px;
-    }
+  .projectDetailImg {
+    width: 400px;
+    height: 375px;
+  }
 }
 @media (max-width: 1150px) {
-    .popupContentWrapper{
-        flex-direction: column;
-        height: fit-content;
-    }
-    .detailImgCarousel{
-        height: 375px;
-    }
-    .popup-content{
-        height: fit-content;
-    }
+  .popupContentWrapper {
+    flex-direction: column;
+    height: fit-content;
+  }
+  .detailImgCarousel {
+    height: 375px;
+  }
+  .popup-content {
+    height: fit-content;
+  }
 }
 
 @media (max-width: 550px) {
-    .projectDetailImg{
-        width: 80%;
-        height: 275px;
-    }
-    .detailImgCarousel{
-        width: 100%;
-        height: 275px;
-    }
+  .projectDetailImg {
+    width: 80%;
+    height: 275px;
+  }
+  .detailImgCarousel {
+    width: 100%;
+    height: 275px;
+  }
 }

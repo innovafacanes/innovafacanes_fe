@@ -3,85 +3,123 @@ import { getCarouselPaths, getReasons } from "@/model/getHomeData";
 import { getNosaltresInfo } from "@/model/getNosaltresData";
 import { getProjectData } from "@/model/getProjectData";
 import { getServeis } from "@/model/getServeis";
+import { useCallback } from "react";
 
-const { STRAPI_BASE_URL } = process.env;
+const useStrapiApi = () => {
+  const apiBaseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 
-export async function fetchHome(lang) {
-  let language = '';
-  language = lang;
-  const response = await fetch(`${STRAPI_BASE_URL}/home?locale=${language}&populate=*`);
-  const json = await response.json();
-  const data = json.data;
-  const reasons = getReasons(data);
-  const carousel = getCarouselPaths(data);
-  const response2 = await fetch(`${STRAPI_BASE_URL}/projects?locale=${language}&populate=*`);
-  const json2 = await response2.json();
-  const data2 = json2.data;
-  const projects = getProjectData(data2);
+  const fetchHome = useCallback(
+    async (lang) => {
+      let language = "";
+      language = lang;
+      const response = await fetch(
+        `${apiBaseUrl}/home?locale=${language}&populate=*`
+      );
+      const json = await response.json();
+      const data = json.data;
+      const reasons = getReasons(data);
+      const carousel = getCarouselPaths(data);
+      const response2 = await fetch(
+        `${apiBaseUrl}/projects?locale=${language}&populate=*`
+      );
+      const json2 = await response2.json();
+      const data2 = json2.data;
+      const projects = getProjectData(data2);
+
+      return {
+        props: {
+          reasons,
+          carousel,
+          projects,
+        },
+      };
+    },
+    [apiBaseUrl]
+  );
+
+  const fetchNosaltres = useCallback(
+    async (lang) => {
+      let language = "";
+      language = lang;
+      const response = await fetch(
+        `${apiBaseUrl}/nosaltres?locale=${language}&populate=deep`
+      );
+      const json = await response.json();
+      const data = json.data;
+      const nosaltresInfo = getNosaltresInfo(data);
+      return {
+        props: {
+          nosaltresInfo,
+        },
+      };
+    },
+    [apiBaseUrl]
+  );
+
+  const fetchContacte = useCallback(
+    async (lang) => {
+      let language = "";
+      language = lang;
+      const response = await fetch(
+        `${apiBaseUrl}/contacte?locale=${language}&populate=*`
+      );
+      const json = await response.json();
+      const data = json.data;
+      const contactInfo = getContactInfo(data);
+      return {
+        props: {
+          contactInfo,
+        },
+      };
+    },
+    [apiBaseUrl]
+  );
+
+  const fetchProjectes = useCallback(
+    async (lang) => {
+      let language = "";
+      language = lang;
+      const response = await fetch(
+        `${apiBaseUrl}/projects?locale=${language}&populate=*`
+      );
+      const json = await response.json();
+      const data = json.data;
+      const projects = getProjectData(data);
+      return {
+        props: {
+          projects,
+        },
+      };
+    },
+    [apiBaseUrl]
+  );
+
+  const fetchServeis = useCallback(
+    async (lang) => {
+      let language = "";
+      language = lang;
+      const response = await fetch(
+        `${apiBaseUrl}/servei?locale=${language}&populate=*`
+      );
+      const json = await response.json();
+      const data = json.data;
+      const serveis = getServeis(data);
+      return {
+        props: {
+          serveis,
+        },
+      };
+    },
+    [apiBaseUrl]
+  );
 
   return {
-    props: {
-      reasons,
-      carousel,
-      projects,
-    },
+    fetchHome,
+    fetchNosaltres,
+    fetchContacte,
+    fetchProjectes,
+    fetchServeis,
   };
-}
+};
 
-export async function fetchNosaltres(lang) {
-  let language = '';
-  language = lang;
-  const response = await fetch(`${STRAPI_BASE_URL}/nosaltres?locale=${language}&populate=deep`);
-  const json = await response.json();
-  const data = json.data;
-  const nosaltresInfo = getNosaltresInfo(data);
-  return {
-    props: {
-      nosaltresInfo,
-    },
-  };
-}
-
-export async function fetchContacte(lang) {
-  let language = '';
-  language = lang;
-  const response = await fetch(`${STRAPI_BASE_URL}/contacte?locale=${language}&populate=*`);
-  const json = await response.json();
-  const data = json.data;
-  const contactInfo = getContactInfo(data);
-  return {
-    props: {
-      contactInfo,
-    },
-  };
-}
-
-export async function fetchProjectes(lang) {
-  let language = '';
-  language = lang;
-  const response = await fetch(`${STRAPI_BASE_URL}/projects?locale=${language}&populate=*`);
-  const json = await response.json();
-  const data = json.data;
-  const projects = getProjectData(data);
-  return {
-    props: {
-      projects,
-    },
-  };
-}
-
-
-
-export async function fetchServeis(lang) {
-  let language = '';
-  language = lang;
-  const response = await fetch(`${STRAPI_BASE_URL}/servei?locale=${language}&populate=*`);
-  const json = await response.json();
-  const data = json.data;
-  const serveis = getServeis(data);
-  return {
-    props: {
-      serveis
-    },
-  };
-}
+export default useStrapiApi;

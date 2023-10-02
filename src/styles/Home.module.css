@@ -9,18 +9,17 @@
 /*--------------------------------------------------------*/
 /*-----------------------HOME CAROUSEL--------------------*/
 /*--------------------------------------------------------*/
-.homeHeader{
+.homeHeader {
   height: 100vh;
   width: 100vw;
   position: relative;
 }
-.homeCarouselImg{
+.homeCarouselImg {
   object-fit: cover;
-  filter: contrast(.8);
+  filter: contrast(0.8);
 }
 
-
-.headerTitleWrapper{
+.headerTitleWrapper {
   display: flex;
   flex-direction: column;
   z-index: 30;
@@ -32,12 +31,15 @@
   border-left: 2px solid white;
   padding-left: 2rem;
 }
-
+.headerTitleWrapper > h1 {
+  display: flex;
+  flex-direction: column;
+}
 
 /*--------------------------------------------------------*/
 /*-----------------------SECTION TITLE--------------------*/
 /*--------------------------------------------------------*/
-.sectionTitleWrapper{
+.sectionTitleWrapper {
   margin-top: 5rem;
   margin-bottom: 5rem;
   width: 100%;
@@ -46,16 +48,15 @@
   align-items: flex-end;
   font-weight: bold;
 }
-.sectionTitle{
-margin-right: 2rem;
+.sectionTitle {
+  margin-right: 2rem;
 }
-.moreInfo{
-
+.moreInfo {
 }
-.actionWrapper{
+.actionWrapper {
   display: flex;
 }
-.actionWrapper:hover{
+.actionWrapper:hover {
   border-bottom: 1px solid black;
   cursor: pointer;
 }
@@ -63,17 +64,17 @@ margin-right: 2rem;
 /*-----------------------HOME REASONS---------------------*/
 /*--------------------------------------------------------*/
 
-.homeReasons{
+.homeReasons {
   min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding: 0rem 10rem 10rem 10rem;
-  
+
   /* gap: 4rem; */
 }
-.reasonsWrapper{
+.reasonsWrapper {
   display: grid;
   grid-template-columns: 50% 50%;
   column-gap: 5rem;
@@ -86,44 +87,38 @@ margin-right: 2rem;
 /*-----------------------HOME PORTFOLIO-------------------*/
 /*--------------------------------------------------------*/
 
-.homePortfolio{
+.homePortfolio {
   padding: 0rem 10rem 10rem 10rem;
   min-height: 100vh;
   width: 100%;
 }
 
-
-
-
-
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  
 }
 
 /* Mobile */
 @media (max-width: 700px) {
-  .sectionTitleWrapper{
+  .sectionTitleWrapper {
     flex-direction: column;
     gap: 2rem;
     align-items: flex-start;
   }
-
 }
 @media (max-width: 1000px) {
-  .reasonsWrapper{
-   display: flex;
-   flex-direction: column;
-   gap: 3rem;
+  .reasonsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
-  .homeReasons{
+  .homeReasons {
     padding: 5rem 8rem;
   }
 }
 
 @media (max-width: 500px) {
-  .homeReasons{
-   padding: 2rem;
+  .homeReasons {
+    padding: 2rem;
   }
 }
 
@@ -131,24 +126,18 @@ margin-right: 2rem;
 @media (min-width: 701px) and (max-width: 1000px) {
 }
 
-
-
-
-
-
-
 /*PORTFOLIO GRID*/
 
 .container {
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr ; 
-  gap: 1% 1%; 
-  grid-template-areas: 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1% 1%;
+  grid-template-areas:
     "box0 box2 box4"
     "box1 box3 box5"
-    ". . ."; 
-    height: 65vh;
+    ". . .";
+  height: 65vh;
 }
 
 .box0 {
@@ -178,25 +167,27 @@ margin-right: 2rem;
   position: relative;
 }
 
-.box4 { grid-area: box4;
-  position: relative; 
+.box4 {
+  grid-area: box4;
+  position: relative;
   height: 150%;
-align-self: start;}
+  align-self: start;
+}
 
-.box5 { grid-area: box5; 
+.box5 {
+  grid-area: box5;
   height: 50%;
   position: relative;
-align-self: end;}
+  align-self: end;
+}
 
-
-
-.projectImg{
+.projectImg {
   object-fit: cover;
-  
+
   position: relative;
 }
 
-.projectTitle{
+.projectTitle {
   font-size: 2rem;
   color: white;
   position: absolute;
@@ -207,59 +198,59 @@ align-self: end;}
   transition: visibility 0s, opacity 0.5s ease-in-out;
 }
 
-
-.projectImg:hover{
+.projectImg:hover {
   -webkit-filter: brightness(50%);
-  -webkit-transition: all .5s ease-in-out;
-  -moz-transition: all .5s ease-in-out;
-  -o-transition: all .5s ease-in-out;
-  -ms-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
-.projectWrapper:hover .projectTitle{
+.projectWrapper:hover .projectTitle {
   visibility: visible;
   opacity: 1;
   z-index: 10;
 }
 
-.box0:hover .projectTitle{
+.box0:hover .projectTitle {
   visibility: visible;
   opacity: 1;
   z-index: 10;
 }
-.box1:hover .projectTitle{
+.box1:hover .projectTitle {
   visibility: visible;
   opacity: 1;
   z-index: 10;
 }
-.box2:hover .projectTitle{
+.box2:hover .projectTitle {
   visibility: visible;
   opacity: 1;
   z-index: 10;
 }
-.box3:hover .projectTitle{
+.box3:hover .projectTitle {
   visibility: visible;
   opacity: 1;
   z-index: 10;
 }
-.box4:hover .projectTitle{
+.box4:hover .projectTitle {
   visibility: visible;
   opacity: 1;
   z-index: 10;
 }
-.box5:hover .projectTitle{
+.box5:hover .projectTitle {
   visibility: visible;
   opacity: 1;
   z-index: 10;
 }
 
-.box0:hover, .box1:hover, .box2:hover, .box3:hover, .box4:hover, .box5:hover {
+.box0:hover,
+.box1:hover,
+.box2:hover,
+.box3:hover,
+.box4:hover,
+.box5:hover {
   cursor: pointer;
 }
-
-
-
-
 
 .embla {
   overflow: hidden;
@@ -278,29 +269,29 @@ align-self: end;}
 }
 
 @media (max-width: 800px) {
-  .embla{
+  .embla {
     height: 60vh;
   }
-  .homeHeader{
+  .homeHeader {
     height: 60vh;
   }
-  .headerTitleWrapper{
-    font-size: .6rem;
+  .headerTitleWrapper {
+    font-size: 0.6rem;
     top: 20vh;
     gap: 1.5rem;
   }
 }
 
-@media (max-width: 475px){
-  .headerTitleWrapper{
-    font-size: .5rem;
+@media (max-width: 475px) {
+  .headerTitleWrapper {
+    font-size: 0.5rem;
     left: 2.5rem;
     padding-left: 1rem;
   }
 }
 
 @media (max-width: 1000px) {
-  .container{
+  .container {
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
@@ -308,15 +299,19 @@ align-self: end;}
     align-items: center;
     height: fit-content;
   }
-  .box0, .box1, .box2, .box3, .box4, .box5{
+  .box0,
+  .box1,
+  .box2,
+  .box3,
+  .box4,
+  .box5 {
     width: 250px;
     height: 250px;
-    
   }
 }
 
 @media (max-width: 500px) {
-  .homePortfolio{
+  .homePortfolio {
     padding: 2rem;
   }
 }

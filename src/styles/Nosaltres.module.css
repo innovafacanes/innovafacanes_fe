@@ -1,132 +1,132 @@
-
-
-.nosaltresWrapper{
-    width: 100vw;
-    overflow-x: hidden;
-    padding: 10rem 0rem;
+.nosaltresWrapper {
+  width: 100vw;
+  overflow-x: hidden;
+  padding: 10rem 0rem;
+  max-width: 1920px;
 }
 
-.mainTitle{
-    padding-left: 15rem;
+.mainTitle {
+  padding-left: 15rem;
 }
 
-.sectionWrapper{
-    padding-top: 5rem;
+.sectionWrapper {
+  padding-top: 5rem;
 }
 
-
-.themeWrapper, .themeWrapperReverse{
-    display: flex;
-    margin: 5rem 15rem;
+.themeWrapper,
+.themeWrapperReverse {
+  display: flex;
+  margin: 5rem 15rem;
 }
 
-.themeText{
-    flex: 1;
-    padding: 5rem 10rem;
+.themeText {
+  flex: 1;
+  padding: 5rem 10rem;
 }
 
-.themeDescription{
-    padding-top: 2rem;
+.themeDescription {
+  padding-top: 2rem;
 }
 
-
-.themeImageWrapper1{
-    display: flex;
-    flex: 1;
-    justify-content: flex-end;
+.themeImageWrapper1 {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .themeImageWrapper2 {
-    display: flex;
-    flex: 1;
-    justify-content: flex-start;
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
 }
 
-.themeImg{
-    width: 600px;
-    height: 400px;
-    object-fit: cover;
+.themeImg {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
 }
-
 
 @media (max-width: 1700px) {
-    .themeText{
-        flex: 1;
-        padding: 3rem ;
-    }
-    .themeWrapper, .themeWrapperReverse{
-        margin: 5rem 8rem;
-    }
-    .mainTitle{
-        padding-left: 10rem;
-    }
+  .themeText {
+    flex: 1;
+    padding: 3rem;
   }
-  @media (max-width: 1250px) {
-    .themeText{
-        flex: 1;
-        padding: 2rem ;
-    }
-    .themeWrapper, .themeWrapperReverse{
-        margin: 3rem 5rem;
-    }
-    .mainTitle{
-        padding-left: 7rem;
-    }
+  .themeWrapper,
+  .themeWrapperReverse {
+    margin: 5rem 8rem;
+  }
+  .mainTitle {
+    padding-left: 10rem;
+  }
+}
+@media (max-width: 1250px) {
+  .themeText {
+    flex: 1;
+    padding: 2rem;
+  }
+  .themeWrapper,
+  .themeWrapperReverse {
+    margin: 3rem 5rem;
+  }
+  .mainTitle {
+    padding-left: 7rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .themeText {
+    flex: 1;
+    padding: 2rem;
+  }
+  .themeWrapperReverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .themeWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 5rem;
+  }
+  .themeText {
+    flex: 1;
+    padding-right: 8rem;
+  }
+  .themeImageWrapper1 {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .themeImg {
+    width: 400px;
+    height: 275px;
+  }
+}
+
+@media (max-width: 550px) {
+  .themeImg {
+    width: 90%;
+    height: 225px;
+  }
+  .themeWrapper,
+  .themeWrapperReverse {
+    margin: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .themeImageWrapper1 {
+    justify-content: center;
+  }
+  .themeImageWrapper2 {
+    justify-content: center;
   }
 
-  @media (max-width: 1100px) {
-    .themeText{
-        flex: 1;
-        padding: 2rem ;
-    }
-    .themeWrapperReverse {
-        display: flex;
-        flex-direction: column-reverse;
-    }
-    .themeWrapper{
-        display: flex;
-        flex-direction: column;
-        margin: 3rem 5rem;
-    }
-    .themeText{
-        flex: 1;
-        padding-right: 8rem ;
-    }
-    .themeImageWrapper1{
-        justify-content: flex-start;
-    }
+  .themeText {
+    flex: 1;
+    padding: 2rem;
   }
-
-  @media (max-width: 700px) {
-    .themeImg{
-        width: 400px;
-        height: 275px;
-    }
+  .sectionWrapper {
+    padding-top: 0;
   }
-
-  @media (max-width: 550px) {
-    .themeImg{
-        width: 90%;
-        height: 225px;
-    }
-    .themeWrapper, .themeWrapperReverse{
-        margin: 3rem 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .themeImageWrapper1{
-        justify-content: center;
-    }
-    .themeImageWrapper2{
-        justify-content: center;
-    }
-
-    .themeText{
-        flex: 1;
-        padding: 2rem ;
-    }
-    .sectionWrapper{
-        padding-top: 0;
-    }
-  }
+}

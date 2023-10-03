@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import useStrapiApi from "./api/fetching";
 
-export default function Serveis() {
+const Serveis = () => {
   const { language } = useContext(LanguageContext);
   const { fetchServeis } = useStrapiApi();
   const [title, setTitle] = useState(["Qui som?"]);
@@ -58,4 +58,6 @@ export default function Serveis() {
       <Footer />
     </>
   );
-}
+};
+
+export default Serveis;

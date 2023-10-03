@@ -94,7 +94,7 @@ export default function Inici() {
         <main className={styles.main}>
           <section className={styles.homeHeader}>
             <div className={styles.headerTitleWrapper}>
-              <h1>
+              <h1 className={styles.carouselTitles}>
                 <span>{carouselWords[0]}</span>
                 <span>{carouselWords[1]}</span>
                 <span>{carouselWords[2]}</span>

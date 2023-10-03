@@ -41,8 +41,8 @@ export default function Navbar() {
           <Image
             src="/iflogo_negro.png"
             alt="InnovaFaçanes logo"
-            width={240}
-            height={40}
+            width={300}
+            height={50}
             className={styles.logo}
           ></Image>
         </Link>

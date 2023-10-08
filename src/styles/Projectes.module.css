@@ -132,8 +132,15 @@
     width: 400px;
     height: 375px;
   }
+  .detailImgCarousel {
+    width: 400px;
+    height: 375px;
+  }
 }
 @media (max-width: 1150px) {
+  .popup-content {
+    max-width: 50%;
+  }
   .popupContentWrapper {
     flex-direction: column;
     height: fit-content;

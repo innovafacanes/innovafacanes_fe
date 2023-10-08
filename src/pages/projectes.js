@@ -15,6 +15,7 @@ export default function Projectes() {
   const { language } = useContext(LanguageContext);
   const [info, setInfo] = useState([]);
   const [title, setTitle] = useState(["Projectes"]);
+  const [carouselImgToShow, setCarouselImgToShow] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -39,6 +40,30 @@ export default function Projectes() {
     }
     if (language === "en") {
       setTitle(["Projects"]);
+    }
+  };
+
+  const changeImage = (word, length) => {
+    if (word === "prev") {
+      if (carouselImgToShow === 0) {
+        debugger;
+        setCarouselImgToShow(length - 1);
+
+        return;
+      }
+      debugger;
+      setCarouselImgToShow((carouselImgToShow) => carouselImgToShow - 1);
+    }
+
+    if (word === "next") {
+      if (carouselImgToShow === length - 1) {
+        debugger;
+        setCarouselImgToShow(0);
+
+        return;
+      }
+      debugger;
+      setCarouselImgToShow((carouselImgToShow) => carouselImgToShow + 1);
     }
   };
 
@@ -78,7 +103,6 @@ export default function Projectes() {
                   contentStyle={{
                     margin: "auto",
                     position: "relative",
-                    width: "80%",
                     maxWidth: "1200px",
                     height: "fit-content",
                     background: "white",
@@ -92,22 +116,37 @@ export default function Projectes() {
                   <div className={styles.popupContentWrapper}>
                     <div className={styles.detailImgCarousel}>
                       <div className={styles.carouselImgWrapper}>
-                        {project.images.data.map((img, index) => (
-                          <Image
-                            key={index}
-                            className={styles.projectDetailImg}
-                            src={`${img.attributes.url}`}
-                            alt={img.attributes.alternativeText}
-                            width={600}
-                            height={450}
-                          />
-                        ))}
+                        {/* {project.images.data.map((img, index) => ( */}
+                        <Image
+                          key={index}
+                          className={styles.projectDetailImg}
+                          src={`${project.images.data[carouselImgToShow].attributes.url}`}
+                          alt={
+                            project.images.data[carouselImgToShow].attributes
+                              .alternativeText
+                          }
+                          width={600}
+                          height={450}
+                        />
+                        {/* ))} */}
                       </div>
                       <div class={styles.controls}>
-                        <button id="prevBtn" className={styles.prevBtn}>
+                        <button
+                          id="prevBtn"
+                          className={styles.prevBtn}
+                          onClick={() =>
+                            changeImage("prev", project.images.data.length)
+                          }
+                        >
                           Previous
                         </button>
-                        <button id="nextBtn" className={styles.nextBtn}>
+                        <button
+                          id="nextBtn"
+                          className={styles.nextBtn}
+                          onClick={() =>
+                            changeImage("next", project.images.data.length)
+                          }
+                        >
                           Next
                         </button>
                       </div>

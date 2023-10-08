@@ -101,7 +101,6 @@ export default function Inici() {
               </h1>
             </div>
             <HomeCarousel carousel={info.carousel}></HomeCarousel>
-            {/* <Image src={`${STRAPI_BASE_URL}${carousel[0].url}`} alt={`${carousel[0].alt}`}></Image> */}
           </section>
           <section className={styles.homeReasons}>
             <div className={styles.sectionTitleWrapper}>

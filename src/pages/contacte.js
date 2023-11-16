@@ -15,6 +15,7 @@ const Contacte = () => {
   const [contact, setContact] = useState([
     { nom: "", direccio: "", tlf: "", mbl: "", email: "" },
   ]);
+  const [formWords, setFormWords] = useState(["Nom", "Text", "ENVIAR"]);
 
   useEffect(() => {
     (async () => {
@@ -33,14 +34,17 @@ const Contacte = () => {
   const changeTitle = (language) => {
     if (language === "ca") {
       setTitle(["Contacta amb nosaltres"]);
+      setFormWords(["Nom", "Text", "ENVIAR"]);
     }
 
     if (language === "es") {
       setTitle(["Contacta con nosotros"]);
+      setFormWords(["Nombre", "Texto", "ENVIAR"]);
     }
 
     if (language === "en") {
       setTitle(["Contact with us"]);
+      setFormWords(["Name", "Text", "SEND"]);
     }
   };
 
@@ -86,7 +90,7 @@ const Contacte = () => {
               <div className={styles.namemail}>
                 <div>
                   <div className={styles.label}>
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="name">{formWords[0]}:</label>
                   </div>
                   <input
                     type="text"
@@ -115,7 +119,7 @@ const Contacte = () => {
                 </div>
               </div>
               <div className={styles.message}>
-                <label htmlFor="message">Text:</label>
+                <label htmlFor="message">{formWords[1]}:</label>
                 <textarea
                   type="text"
                   id="message"
@@ -131,7 +135,7 @@ const Contacte = () => {
                 <input
                   className={styles.submitButton}
                   type="submit"
-                  value="ENVIAR"
+                  value={formWords[2]}
                 ></input>
                 <Image
                   src="\arrow_right_black.svg"

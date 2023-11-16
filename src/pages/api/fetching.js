@@ -47,6 +47,7 @@ const useStrapiApi = () => {
       const json = await response.json();
       const data = json.data;
       const nosaltresInfo = getNosaltresInfo(data);
+
       return {
         props: {
           nosaltresInfo,
@@ -85,6 +86,7 @@ const useStrapiApi = () => {
       const json = await response.json();
       const data = json.data;
       const projects = getProjectData(data);
+      console.log(projects);
       return {
         props: {
           projects,

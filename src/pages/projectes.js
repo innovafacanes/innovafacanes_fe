@@ -15,6 +15,8 @@ export default function Projectes() {
   const { language } = useContext(LanguageContext);
   const [info, setInfo] = useState([]);
   const [title, setTitle] = useState(["Projectes"]);
+  const [indexToShow, setIndexToShow] = useState(0);
+  const [maxIndex, setMaxIndex] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -42,6 +44,26 @@ export default function Projectes() {
     }
   };
 
+  const setNextImage = () => {
+    if (indexToShow < maxIndex) {
+      setIndexToShow(indexToShow + 1);
+
+      return;
+    }
+
+    setIndexToShow(0);
+  };
+
+  const setPreviousImage = () => {
+    if (indexToShow > 0) {
+      setIndexToShow(indexToShow - 1);
+
+      return;
+    }
+
+    setIndexToShow(maxIndex);
+  };
+
   return (
     <>
       <Navbar />
@@ -54,6 +76,7 @@ export default function Projectes() {
                 <div
                   className={styles.projectWrapper}
                   onClick={() => {
+                    setMaxIndex(project.images.data.length - 1);
                     setOpen((o) => !o);
                     setActiveProject(index);
                   }}
@@ -92,23 +115,33 @@ export default function Projectes() {
                   <div className={styles.popupContentWrapper}>
                     <div className={styles.detailImgCarousel}>
                       <div className={styles.carouselImgWrapper}>
-                        {project.images.data.map((img, index) => (
+                        {project.images.data[indexToShow] && (
                           <Image
-                            key={index}
                             className={styles.projectDetailImg}
-                            src={`${img.attributes.url}`}
-                            alt={img.attributes.alternativeText}
+                            src={`${project.images.data[indexToShow].attributes.url}`}
+                            alt={
+                              project.images.data[indexToShow].attributes
+                                .alternativeText
+                            }
                             width={600}
                             height={450}
                           />
-                        ))}
+                        )}
                       </div>
-                      <div class={styles.controls}>
-                        <button id="prevBtn" className={styles.prevBtn}>
-                          Previous
+                      <div className={styles.controls}>
+                        <button
+                          id="prevBtn"
+                          className={styles.prevBtn}
+                          onClick={setPreviousImage}
+                        >
+                          {"<"}
                         </button>
-                        <button id="nextBtn" className={styles.nextBtn}>
-                          Next
+                        <button
+                          id="nextBtn"
+                          className={styles.nextBtn}
+                          onClick={setNextImage}
+                        >
+                          {">"}
                         </button>
                       </div>
                     </div>

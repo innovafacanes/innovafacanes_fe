@@ -50,7 +50,10 @@ export default function Serveis() {
           {services.map(({ serviceTitle, serviceDesc }, index) => (
             <div key={index} className={styles.serviceWrapper}>
               <h2 className={styles.serviceTitle}>{serviceTitle}</h2>
-              <p className={styles.serviceDesc}>{serviceDesc}</p>
+              <p
+                className={styles.serviceDesc}
+                dangerouslySetInnerHTML={{ __html: serviceDesc }}
+              />
             </div>
           ))}
         </div>

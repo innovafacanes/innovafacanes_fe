@@ -145,9 +145,12 @@ export default function Projectes() {
                     </div>
                     <div className={styles.detailText}>
                       <h3 className={styles.detailTitle}>{project.title}</h3>
-                      <p className={styles.detailDescription}>
-                        {project.description}
-                      </p>
+                      <p
+                        className={styles.detailDescription}
+                        dangerouslySetInnerHTML={{
+                          __html: project.description,
+                        }}
+                      />
                       <p className={styles.detailDate}>{project.date}</p>
                     </div>
                     <a className={styles.close} onClick={closeModal}>

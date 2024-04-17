@@ -103,7 +103,7 @@ export default function Projectes() {
                     position: "relative",
                     width: "80%",
                     maxWidth: "1200px",
-                    height: "fit-content",
+                    minHeight: "60vh",
                     background: "white",
                     borderRadius: "0rem",
                     boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
@@ -114,20 +114,18 @@ export default function Projectes() {
                 >
                   <div className={styles.popupContentWrapper}>
                     <div className={styles.detailImgCarousel}>
-                      <div className={styles.carouselImgWrapper}>
-                        {project.images.data[indexToShow] && (
-                          <Image
-                            className={styles.projectDetailImg}
-                            src={`${project.images.data[indexToShow].attributes.url}`}
-                            alt={
-                              project.images.data[indexToShow].attributes
-                                .alternativeText
-                            }
-                            width={600}
-                            height={450}
-                          />
-                        )}
-                      </div>
+                      {project.images.data[indexToShow] && (
+                        <Image
+                          className={styles.projectDetailImg}
+                          src={`${project.images.data[indexToShow].attributes.url}`}
+                          alt={
+                            project.images.data[indexToShow].attributes
+                              .alternativeText
+                          }
+                          width={600}
+                          height={450}
+                        />
+                      )}
                       <div className={styles.controls}>
                         <button
                           id="prevBtn"

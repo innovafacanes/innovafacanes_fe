@@ -5,8 +5,12 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import useStrapiApi, { fetchContacte } from "./api/fetching";
 import LanguageContext from "@/store/language/context/LanguageContext";
+import { EmailTemplate } from "@/emails/EmailTemplate";
+import { Resend } from "resend";
 
 const apiBaseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const MY_EMAIL = process.env.NEXT_PUBLIC_MY_EMAIL;
 
 const Contacte = () => {
   const { language } = useContext(LanguageContext);
@@ -15,7 +19,12 @@ const Contacte = () => {
   const [contact, setContact] = useState([
     { nom: "", direccio: "", tlf: "", mbl: "", email: "" },
   ]);
-  const [formWords, setFormWords] = useState(["Nom", "Text", "ENVIAR"]);
+  const [formWords, setFormWords] = useState([
+    "Nom",
+    "Text",
+    "ENVIAR",
+    "Escriu el missatge",
+  ]);
 
   useEffect(() => {
     (async () => {
@@ -34,17 +43,17 @@ const Contacte = () => {
   const changeTitle = (language) => {
     if (language === "ca") {
       setTitle(["Contacta amb nosaltres"]);
-      setFormWords(["Nom", "Text", "ENVIAR"]);
+      setFormWords(["Nom", "Text", "ENVIAR", "Escriu el missatge"]);
     }
 
     if (language === "es") {
       setTitle(["Contacta con nosotros"]);
-      setFormWords(["Nombre", "Texto", "ENVIAR"]);
+      setFormWords(["Nombre", "Texto", "ENVIAR", "Escribe el mensaje"]);
     }
 
     if (language === "en") {
       setTitle(["Contact with us"]);
-      setFormWords(["Name", "Text", "SEND"]);
+      setFormWords(["Name", "Text", "SEND", "Write your message"]);
     }
   };
 
@@ -62,13 +71,28 @@ const Contacte = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch(`${apiBaseUrl}/ezforms/submit`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ formData: formData }),
-    });
+    try {
+      fetch(`${apiBaseUrl}/ezforms/submit`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ formData: formData }),
+      });
+
+      const { data } = await resend.emails.send({
+        from: "onboarding@resend.dev",
+        to: [`${MY_EMAIL}`],
+        subject: "Missatge nou",
+        react: EmailTemplate({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -97,7 +121,7 @@ const Contacte = () => {
                     id="name"
                     name="name"
                     className={styles.input}
-                    placeholder="Name"
+                    placeholder={formWords[0]}
                     value={formData.name}
                     onChange={handleInputChange}
                   ></input>
@@ -125,7 +149,7 @@ const Contacte = () => {
                   id="message"
                   name="message"
                   className={styles.messageBox}
-                  placeholder="Escriu el missatge"
+                  placeholder={formWords[3]}
                   value={formData.message}
                   onChange={handleInputChange}
                   required

@@ -58,7 +58,7 @@ export default function Footer() {
               ></Image>
             </a>
             <a
-              href="https://www.linkedin.com/in/xavier-mendieta-albareda-025aa8128/"
+              href="https://www.linkedin.com/company/innova-facanes/"
               target="_blank"
             >
               <Image

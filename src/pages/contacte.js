@@ -5,7 +5,6 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import useStrapiApi, { fetchContacte } from "./api/fetching";
 import LanguageContext from "@/store/language/context/LanguageContext";
-import { EmailTemplate } from "@/emails/EmailTemplate";
 import { Resend } from "resend";
 
 const apiBaseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
@@ -80,7 +79,7 @@ const Contacte = () => {
         body: JSON.stringify({ formData: formData }),
       });
 
-      const { data } = await resend.emails.send({
+      /*const { data } = await resend.emails.send({
         from: "onboarding@resend.dev",
         to: [`${MY_EMAIL}`],
         subject: "Missatge nou",
@@ -89,7 +88,7 @@ const Contacte = () => {
           email: formData.email,
           message: formData.message,
         }),
-      });
+      });*/
     } catch (error) {
       console.log(error);
     }

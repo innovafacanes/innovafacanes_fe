@@ -9,7 +9,7 @@ import LanguageContext from "@/store/language/context/LanguageContext";
 export default function Nosaltres() {
   const imgWidth = 800;
   const imgHeight = 550;
-  const { language } = useContext(LanguageContext);
+  const { language, t } = useContext(LanguageContext);
   const { fetchNosaltres } = useStrapiApi();
   const [info, setInfo] = useState([
     { title: "", description: "", image: "", alt: "" },
@@ -17,7 +17,6 @@ export default function Nosaltres() {
     { title: "", description: "", image: "", alt: "" },
     { title: "", description: "", image: "", alt: "" },
   ]);
-  const [title, setTitle] = useState(["Qui som?"]);
 
   useEffect(() => {
     (async () => {
@@ -29,28 +28,12 @@ export default function Nosaltres() {
     })();
   }, [fetchNosaltres, language]);
 
-  useEffect(() => {
-    changeTitle(language);
-  }, [language]);
-
-  const changeTitle = (language) => {
-    if (language === "ca") {
-      setTitle(["Qui som?"]);
-    }
-    if (language === "es") {
-      setTitle(["¿Quiénes somos?"]);
-    }
-    if (language === "en") {
-      setTitle(["About us"]);
-    }
-  };
-
   return (
     <>
       <Navbar />
       <div className={styles.nosaltresWrapper}>
         <div className={styles.mainTitle}>
-          <h1>{title}</h1>
+          <h1>{t("whoWeAre")}</h1>
         </div>
         <div className={styles.sectionWrapper}>
           {/*FIRST*/}

@@ -6,9 +6,8 @@ import Navbar from "../../components/Navbar";
 import useStrapiApi from "./api/fetching";
 
 export default function Serveis() {
-  const { language } = useContext(LanguageContext);
+  const { language, t } = useContext(LanguageContext);
   const { fetchServeis } = useStrapiApi();
-  const [title, setTitle] = useState(["Qui som?"]);
   const [services, setServices] = useState([
     { serviceTitle: "", serviceDesc: "" },
   ]);
@@ -23,29 +22,11 @@ export default function Serveis() {
     })();
   }, [fetchServeis, language]);
 
-  useEffect(() => {
-    changeTitle(language);
-  }, [language]);
-
-  const changeTitle = (language) => {
-    if (language === "ca") {
-      setTitle(["Què oferim?"]);
-    }
-
-    if (language === "es") {
-      setTitle(["¿Qué ofrecemos?"]);
-    }
-
-    if (language === "en") {
-      setTitle(["Our services"]);
-    }
-  };
-
   return (
     <>
       <Navbar />
       <div className={styles.main}>
-        <h1 className={styles.mainTitle}>{title}</h1>
+        <h1 className={styles.mainTitle}>{t("whatWeOffer")}</h1>
         <div className={styles.servicesWrapper}>
           {services.map(({ serviceTitle, serviceDesc }, index) => (
             <div key={index} className={styles.serviceWrapper}>

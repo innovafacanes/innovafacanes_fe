@@ -1,0 +1,18 @@
+export const catWords = {
+  services: "Serveis",
+  projects: "Projectes",
+  aboutUs: "Nosaltres",
+  contact: "Contacte",
+  contactUs: "Contacta amb nosaltres",
+  formName: "Nom",
+  formText: "Text",
+  formSend: "ENVIAR",
+  formPlaceHolder: "Escriu el missatge",
+  headerCarousel1: "Diferents sistemes",
+  headerCarousel2: "Solucions integrals",
+  headerCarousel3: "Màxima qualitat",
+  whyUs: "Per què nosaltres?",
+  moreInfo: "MÉS INFORMACIÓ",
+  whoWeAre: "Qui som?",
+  whatWeOffer: "Què oferim?",
+};

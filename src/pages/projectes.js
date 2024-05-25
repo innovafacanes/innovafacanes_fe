@@ -101,7 +101,7 @@ export default function Projectes() {
                       position: "relative",
                       width: "80%",
                       maxWidth: "1200px",
-                      height: "60vh",
+                      minHeight: "60vh",
                       background: "white",
                       borderRadius: "0rem",
                       boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
@@ -130,14 +130,26 @@ export default function Projectes() {
                             className={styles.prevBtn}
                             onClick={setPreviousImage}
                           >
-                            {"<"}
+                            <Image
+                              src="\arrow_right_black.svg"
+                              alt="Previous button"
+                              width={60}
+                              height={30}
+                              className={styles.prevBtnImg}
+                            />
                           </button>
                           <button
                             id="nextBtn"
                             className={styles.nextBtn}
                             onClick={setNextImage}
                           >
-                            {">"}
+                            <Image
+                              src="\arrow_right_black.svg"
+                              alt="Previous button"
+                              width={60}
+                              height={30}
+                              className={styles.nextBtnImg}
+                            />
                           </button>
                         </div>
                       </div>

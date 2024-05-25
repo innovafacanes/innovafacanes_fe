@@ -7,7 +7,7 @@
 }
 
 /*--------------------------------------------------------*/
-/*-----------------------HOME CAROUSEL--------------------*/
+/*---------------------- HOME CAROUSEL -------------------*/
 /*--------------------------------------------------------*/
 .homeHeader {
   height: 100vh;
@@ -255,6 +255,10 @@
 .embla {
   overflow: hidden;
   height: 100vh;
+  position: relative;
+}
+.emblaViewport {
+  height: 100%;
 }
 .emblaContainer {
   display: flex;
@@ -266,6 +270,20 @@
   z-index: 5;
   position: relative;
   margin-right: 1rem;
+}
+.emblaPrev,
+.emblaNext {
+  position: absolute;
+}
+.emblaPrev {
+  bottom: 64px;
+  left: 2rem;
+  padding-bottom: 4px;
+  rotate: 180deg;
+}
+.emblaNext {
+  left: 10rem;
+  bottom: 60px;
 }
 
 @media (max-width: 800px) {
@@ -280,6 +298,21 @@
     top: 20vh;
     gap: 1.5rem;
   }
+  .emblaPrev {
+    bottom: 44px;
+    left: 1rem;
+    padding-bottom: 4px;
+    rotate: 180deg;
+  }
+  .emblaNext {
+    left: 6rem;
+    bottom: 40px;
+  }
+  .emblaPrevImg,
+  .emblaNextImg {
+    width: 80px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 475px) {
@@ -287,6 +320,21 @@
     font-size: 0.5rem;
     left: 2.5rem;
     padding-left: 1rem;
+  }
+  .emblaPrev {
+    bottom: 24px;
+    left: 1rem;
+    padding-bottom: 4px;
+    rotate: 180deg;
+  }
+  .emblaNext {
+    left: 6rem;
+    bottom: 20px;
+  }
+  .emblaPrevImg,
+  .emblaNextImg {
+    width: 60px;
+    height: 30px;
   }
 }
 

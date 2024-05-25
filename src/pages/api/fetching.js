@@ -81,7 +81,7 @@ const useStrapiApi = () => {
       let language = "";
       language = lang;
       const response = await fetch(
-        `${apiBaseUrl}/projects?locale=${language}&populate=*`
+        `${apiBaseUrl}/projects?sort=Date:desc&locale=${language}&populate=*`
       );
       const json = await response.json();
       const data = json.data;

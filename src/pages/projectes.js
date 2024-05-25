@@ -23,7 +23,6 @@ export default function Projectes() {
       const {
         props: { projects },
       } = await fetchProjectes(language);
-
       setInfo(projects);
     })();
   }, [fetchProjectes, language]);
@@ -68,12 +67,13 @@ export default function Projectes() {
     <>
       <Navbar />
       <div className={styles.mainProjectes}>
-        <h1>{title}</h1>
-        {info && (
-          <div className={styles.projectsWrapper}>
-            {info.map((project, index) => (
-              <div key={index}>
+        <div className={styles.contentWrapper}>
+          <h1>{title}</h1>
+          {info && (
+            <div className={styles.projectsWrapper}>
+              {info.map((project, index) => (
                 <div
+                  key={index}
                   className={styles.projectWrapper}
                   onClick={() => {
                     setMaxIndex(project.images.data.length - 1);
@@ -89,79 +89,90 @@ export default function Projectes() {
                     height={450}
                   />
                   <h2 className={styles.projectTitle}>{project.title}</h2>
-                </div>
-
-                <Popup
-                  key={index}
-                  open={activeProject === index ? open : false}
-                  className={styles.popupContent}
-                  closeOnDocumentClick
-                  onClose={closeModal}
-                  overlayStyle={{ background: "rgba(0,0,0,0.5)" }}
-                  contentStyle={{
-                    margin: "auto",
-                    position: "relative",
-                    width: "80%",
-                    maxWidth: "1200px",
-                    minHeight: "60vh",
-                    background: "white",
-                    borderRadius: "0rem",
-                    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    padding: "1rem",
-                  }}
-                >
-                  <div className={styles.popupContentWrapper}>
-                    <div className={styles.detailImgCarousel}>
-                      {project.images.data[indexToShow] && (
-                        <Image
-                          className={styles.projectDetailImg}
-                          src={`${project.images.data[indexToShow].attributes.url}`}
-                          alt={
-                            project.images.data[indexToShow].attributes
-                              .alternativeText
-                          }
-                          width={600}
-                          height={450}
-                        />
-                      )}
-                      <div className={styles.controls}>
-                        <button
-                          id="prevBtn"
-                          className={styles.prevBtn}
-                          onClick={setPreviousImage}
-                        >
-                          {"<"}
-                        </button>
-                        <button
-                          id="nextBtn"
-                          className={styles.nextBtn}
-                          onClick={setNextImage}
-                        >
-                          {">"}
-                        </button>
+                  <Popup
+                    key={index}
+                    open={activeProject === index ? open : false}
+                    className={styles.popupContent}
+                    closeOnDocumentClick
+                    onClose={closeModal}
+                    overlayStyle={{ background: "rgba(0,0,0,0.5)" }}
+                    contentStyle={{
+                      margin: "auto",
+                      position: "relative",
+                      width: "80%",
+                      maxWidth: "1200px",
+                      minHeight: "60vh",
+                      background: "white",
+                      borderRadius: "0rem",
+                      boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      padding: "1rem",
+                    }}
+                  >
+                    <div className={styles.popupContentWrapper}>
+                      <div className={styles.detailImgCarousel}>
+                        {project.images.data[indexToShow] && (
+                          <Image
+                            className={styles.projectDetailImg}
+                            src={`${project.images.data[indexToShow].attributes.url}`}
+                            alt={
+                              project.images.data[indexToShow].attributes
+                                .alternativeText
+                            }
+                            width={600}
+                            height={450}
+                          />
+                        )}
+                        <div className={styles.controls}>
+                          <button
+                            id="prevBtn"
+                            className={styles.prevBtn}
+                            onClick={setPreviousImage}
+                          >
+                            <Image
+                              src="\arrow_right_black.svg"
+                              alt="Previous button"
+                              width={60}
+                              height={30}
+                              className={styles.prevBtnImg}
+                            />
+                          </button>
+                          <button
+                            id="nextBtn"
+                            className={styles.nextBtn}
+                            onClick={setNextImage}
+                          >
+                            <Image
+                              src="\arrow_right_black.svg"
+                              alt="Previous button"
+                              width={60}
+                              height={30}
+                              className={styles.nextBtnImg}
+                            />
+                          </button>
+                        </div>
                       </div>
+                      <div className={styles.detailText}>
+                        <h3 className={styles.detailTitle}>{project.title}</h3>
+                        <p
+                          className={styles.detailDescription}
+                          dangerouslySetInnerHTML={{
+                            __html: project.description,
+                          }}
+                        />
+                        <p className={styles.detailDate}>{project.date}</p>
+                      </div>
+                      <a className={styles.close} onClick={closeModal}>
+                        &times;
+                      </a>
                     </div>
-                    <div className={styles.detailText}>
-                      <h3 className={styles.detailTitle}>{project.title}</h3>
-                      <p
-                        className={styles.detailDescription}
-                        dangerouslySetInnerHTML={{
-                          __html: project.description,
-                        }}
-                      />
-                      <p className={styles.detailDate}>{project.date}</p>
-                    </div>
-                    <a className={styles.close} onClick={closeModal}>
-                      &times;
-                    </a>
-                  </div>
-                </Popup>
-              </div>
-            ))}
-          </div>
-        )}
+                  </Popup>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
       <Footer />
     </>

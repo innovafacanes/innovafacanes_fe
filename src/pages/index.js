@@ -17,14 +17,8 @@ export default function Inici() {
     reasons: [],
     projects: [],
   });
-  const [carouselWords, setCarouselWords] = useState([
-    "Serveis",
-    "Projectes",
-    "Nosaltres",
-    "Contacte",
-  ]);
 
-  const { language } = useContext(LanguageContext);
+  const { language, t } = useContext(LanguageContext);
 
   useEffect(() => {
     (async () => {
@@ -39,43 +33,6 @@ export default function Inici() {
       });
     })();
   }, [fetchHome, language]);
-
-  useEffect(() => {
-    changeCarouselWords(language);
-  }, [language]);
-
-  const changeCarouselWords = (language) => {
-    if (language === "ca") {
-      setCarouselWords([
-        "Diferents sistemes",
-        "Solucions integrals",
-        "Màxima qualitat",
-        "Per què nosaltres?",
-        "MÉS INFORMACIÓ",
-        "Projectes",
-      ]);
-    }
-    if (language === "es") {
-      setCarouselWords([
-        "Diferentes sistemas",
-        "Soluciones integrales",
-        "Máxima calidad",
-        "¿Porqué nosotros?",
-        "MÁS INFORMACIÓN",
-        "Proyectos",
-      ]);
-    }
-    if (language === "en") {
-      setCarouselWords([
-        "Diferent systems",
-        "Complete solutions",
-        "Best quality",
-        "Why us?",
-        "MORE INFORMATION",
-        "Projects",
-      ]);
-    }
-  };
 
   return (
     <>
@@ -95,9 +52,9 @@ export default function Inici() {
           <section className={styles.homeHeader}>
             <div className={styles.headerTitleWrapper}>
               <h1>
-                <span>{carouselWords[0]}</span>
-                <span>{carouselWords[1]}</span>
-                <span>{carouselWords[2]}</span>
+                <span>{t("headerCarousel1")}</span>
+                <span>{t("headerCarousel2")}</span>
+                <span>{t("headerCarousel3")}</span>
               </h1>
             </div>
             <HomeCarousel carousel={info.carousel}></HomeCarousel>
@@ -106,11 +63,11 @@ export default function Inici() {
           <section className={styles.homeReasons}>
             <div className={styles.sectionTitleWrapper}>
               <div>
-                <h2 className={styles.sectionTitle}>{carouselWords[3]}</h2>
+                <h2 className={styles.sectionTitle}>{t("whyUs")}</h2>
               </div>
               <div className={styles.actionWrapper}>
                 <Link href="/nosaltres" rel="noopener noreferrer">
-                  <div className={styles.moreInfo}>{carouselWords[4]}</div>
+                  <div className={styles.moreInfo}>{t("moreInfo")}</div>
                 </Link>
                 <Link href="/nosaltres" rel="noopener noreferrer">
                   <Image
@@ -136,11 +93,11 @@ export default function Inici() {
           <section className={styles.homePortfolio}>
             <div className={styles.sectionTitleWrapper}>
               <div>
-                <h2 className={styles.sectionTitle}>{carouselWords[5]}</h2>
+                <h2 className={styles.sectionTitle}>{t("projects")}</h2>
               </div>
               <div className={styles.actionWrapper}>
                 <Link href="/projectes" rel="noopener noreferrer">
-                  <div className={styles.moreInfo}>{carouselWords[4]}</div>
+                  <div className={styles.moreInfo}>{t("moreInfo")}</div>
                 </Link>
                 <Link href="/projectes" rel="noopener noreferrer">
                   <Image

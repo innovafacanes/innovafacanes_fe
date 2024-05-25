@@ -1,0 +1,18 @@
+export const esWords = {
+  services: "Servicios",
+  projects: "Proyectos",
+  aboutUs: "Nosotros",
+  contact: "Contacto",
+  contactUs: "Contacta con nosotros",
+  formName: "Nombre",
+  formText: "Texto",
+  formSend: "ENVIAR",
+  formPlaceHolder: "Escribe el mensaje",
+  headerCarousel1: "Diferentes sistemas",
+  headerCarousel2: "Soluciones integrales",
+  headerCarousel3: "Máxima calidad",
+  whyUs: "¿Porqué nosotros?",
+  moreInfo: "MÁS INFORMACIÓN",
+  whoWeAre: "¿Quiénes somos?",
+  whatWeOffer: "¿Qué ofrecemos?",
+};

@@ -12,9 +12,8 @@ export default function Projectes() {
   const [activeProject, setActiveProject] = useState(null);
   const closeModal = () => setOpen(false);
   const { fetchProjectes } = useStrapiApi();
-  const { language } = useContext(LanguageContext);
+  const { language, t } = useContext(LanguageContext);
   const [info, setInfo] = useState([]);
-  const [title, setTitle] = useState(["Projectes"]);
   const [indexToShow, setIndexToShow] = useState(0);
   const [maxIndex, setMaxIndex] = useState(0);
 
@@ -26,22 +25,6 @@ export default function Projectes() {
       setInfo(projects);
     })();
   }, [fetchProjectes, language]);
-
-  useEffect(() => {
-    changeTitle(language);
-  }, [language]);
-
-  const changeTitle = (language) => {
-    if (language === "ca") {
-      setTitle(["Projectes"]);
-    }
-    if (language === "es") {
-      setTitle(["Proyectos"]);
-    }
-    if (language === "en") {
-      setTitle(["Projects"]);
-    }
-  };
 
   const setNextImage = () => {
     if (indexToShow < maxIndex) {
@@ -68,7 +51,7 @@ export default function Projectes() {
       <Navbar />
       <div className={styles.mainProjectes}>
         <div className={styles.contentWrapper}>
-          <h1>{title}</h1>
+          <h1>{t("projects")}</h1>
           {info && (
             <div className={styles.projectsWrapper}>
               {info.map((project, index) => (

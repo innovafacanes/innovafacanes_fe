@@ -12,17 +12,10 @@ const apiBaseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 //const MY_EMAIL = process.env.NEXT_PUBLIC_MY_EMAIL;
 
 const Contacte = () => {
-  const { language } = useContext(LanguageContext);
+  const { language, t } = useContext(LanguageContext);
   const { fetchContacte } = useStrapiApi();
-  const [title, setTitle] = useState(["Contacta amb nosaltres"]);
   const [contact, setContact] = useState([
     { nom: "", direccio: "", tlf: "", mbl: "", email: "" },
-  ]);
-  const [formWords, setFormWords] = useState([
-    "Nom",
-    "Text",
-    "ENVIAR",
-    "Escriu el missatge",
   ]);
 
   useEffect(() => {
@@ -34,27 +27,6 @@ const Contacte = () => {
       setContact(contactInfo);
     })();
   }, [fetchContacte, language]);
-
-  useEffect(() => {
-    changeTitle(language);
-  }, [language]);
-
-  const changeTitle = (language) => {
-    if (language === "ca") {
-      setTitle(["Contacta amb nosaltres"]);
-      setFormWords(["Nom", "Text", "ENVIAR", "Escriu el missatge"]);
-    }
-
-    if (language === "es") {
-      setTitle(["Contacta con nosotros"]);
-      setFormWords(["Nombre", "Texto", "ENVIAR", "Escribe el mensaje"]);
-    }
-
-    if (language === "en") {
-      setTitle(["Contact with us"]);
-      setFormWords(["Name", "Text", "SEND", "Write your message"]);
-    }
-  };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -99,7 +71,7 @@ const Contacte = () => {
       <Navbar />
       <main className={styles.mainContacte}>
         <div className={styles.firstDiv}>
-          <h1 className={styles.contactTitle}>{title}</h1>
+          <h1 className={styles.contactTitle}>{t("contactUs")}</h1>
           <div className={styles.infoWrapper}>
             <h2 className={styles.infoText}>{contact.nom}</h2>
             <h2 className={styles.infoText}>{contact.direccio}</h2>
@@ -113,14 +85,14 @@ const Contacte = () => {
               <div className={styles.namemail}>
                 <div>
                   <div className={styles.label}>
-                    <label htmlFor="name">{formWords[0]}:</label>
+                    <label htmlFor="name">{t("formName")}:</label>
                   </div>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     className={styles.input}
-                    placeholder={formWords[0]}
+                    placeholder={t("formName")}
                     value={formData.name}
                     onChange={handleInputChange}
                   ></input>
@@ -142,13 +114,13 @@ const Contacte = () => {
                 </div>
               </div>
               <div className={styles.message}>
-                <label htmlFor="message">{formWords[1]}:</label>
+                <label htmlFor="message">{t("formText")}:</label>
                 <textarea
                   type="text"
                   id="message"
                   name="message"
                   className={styles.messageBox}
-                  placeholder={formWords[3]}
+                  placeholder={t("formPlaceHolder")}
                   value={formData.message}
                   onChange={handleInputChange}
                   required
@@ -158,7 +130,7 @@ const Contacte = () => {
                 <input
                   className={styles.submitButton}
                   type="submit"
-                  value={formWords[2]}
+                  value={t("formSend")}
                 ></input>
                 <Image
                   src="\arrow_right_black.svg"

@@ -8,6 +8,10 @@ export const esWords = {
   formText: "Texto",
   formSend: "ENVIAR",
   formPlaceHolder: "Escribe el mensaje",
+  formSending: "Enviando…",
+  formSent: "Mensaje enviado. Te responderemos pronto.",
+  formError:
+    "No se ha podido enviar el mensaje. Vuelve a intentarlo o escribe a innovafacanes@innovafacanes.cat.",
   headerCarousel1: "Diferentes sistemas",
   headerCarousel2: "Soluciones integrales",
   headerCarousel3: "Máxima calidad",

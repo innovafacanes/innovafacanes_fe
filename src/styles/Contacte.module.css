@@ -106,6 +106,13 @@
     font-weight: bolder;
 }
 
+.formStatus{
+    margin-top: .5rem;
+}
+.formStatusError{
+    color: #b00020;
+}
+
 @media (max-width: 1200px) {
     .firstDiv, .secondDiv{
       flex-direction: column;

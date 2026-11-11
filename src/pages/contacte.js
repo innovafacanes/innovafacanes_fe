@@ -1,5 +1,6 @@
 import styles from "@/styles/Contacte.module.css";
 import Image from "next/image";
+import Script from "next/script";
 import { useContext, useState } from "react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
@@ -7,17 +8,17 @@ import Seo from "../../components/Seo";
 import LanguageContext from "@/store/language/context/LanguageContext";
 import { REVALIDATE_SECONDS } from "@/lib/config";
 import { getContact } from "@/lib/content";
+import { submitContactForm } from "@/lib/contactForm";
 
-const apiBaseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+const emptyFormData = { name: "", email: "", message: "" };
 
 const Contacte = ({ contact }) => {
   const { t } = useContext(LanguageContext);
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(emptyFormData);
+  const [status, setStatus] = useState("idle");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,20 +30,30 @@ const Contacte = ({ contact }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus("sending");
     try {
-      fetch(`${apiBaseUrl}/ezforms/submit`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formData: formData }),
+      await submitContactForm({
+        formData,
+        siteKey: RECAPTCHA_SITE_KEY,
+        grecaptcha: typeof window !== "undefined" ? window.grecaptcha : undefined,
       });
+      setFormData(emptyFormData);
+      setStatus("sent");
     } catch (error) {
       console.log(error);
+      setStatus("error");
     }
   };
 
   return (
     <>
       <Seo title={`${t("contact")} | Innovafaçanes`} />
+      {RECAPTCHA_SITE_KEY && (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
+          strategy="afterInteractive"
+        />
+      )}
       <Navbar />
       <main className={styles.mainContacte}>
         <div className={styles.firstDiv}>
@@ -106,6 +117,7 @@ const Contacte = ({ contact }) => {
                   className={styles.submitButton}
                   type="submit"
                   value={t("formSend")}
+                  disabled={status === "sending"}
                 ></input>
                 <Image
                   src="\arrow_right_black.svg"
@@ -114,6 +126,17 @@ const Contacte = ({ contact }) => {
                   height={40}
                 ></Image>
               </div>
+              {status !== "idle" && (
+                <p
+                  role="status"
+                  aria-live="polite"
+                  className={`${styles.formStatus} ${status === "error" ? styles.formStatusError : ""}`}
+                >
+                  {status === "sending" && t("formSending")}
+                  {status === "sent" && t("formSent")}
+                  {status === "error" && t("formError")}
+                </p>
+              )}
             </form>
           </div>
           <div className={styles.mapWrapper}>

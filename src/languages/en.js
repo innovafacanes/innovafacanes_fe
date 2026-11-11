@@ -8,6 +8,10 @@ export const enWords = {
   formText: "Text",
   formSend: "SEND",
   formPlaceHolder: "Write your message",
+  formSending: "Sending…",
+  formSent: "Message sent. We'll get back to you soon.",
+  formError:
+    "The message could not be sent. Please try again or write to innovafacanes@innovafacanes.cat.",
   headerCarousel1: "Different systems",
   headerCarousel2: "Complete solutions",
   headerCarousel3: "Best quality",

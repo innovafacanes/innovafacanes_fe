@@ -8,6 +8,10 @@ export const catWords = {
   formText: "Text",
   formSend: "ENVIAR",
   formPlaceHolder: "Escriu el missatge",
+  formSending: "Enviant…",
+  formSent: "Missatge enviat. Us respondrem aviat.",
+  formError:
+    "No s'ha pogut enviar el missatge. Torna-ho a provar o escriu a innovafacanes@innovafacanes.cat.",
   headerCarousel1: "Diferents sistemes",
   headerCarousel2: "Solucions integrals",
   headerCarousel3: "Màxima qualitat",

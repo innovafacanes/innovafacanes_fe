@@ -15,4 +15,5 @@ export const enWords = {
   moreInfo: "MORE INFORMATION",
   whoWeAre: "About us",
   whatWeOffer: "Our services",
+  loadMore: "LOAD MORE",
 };

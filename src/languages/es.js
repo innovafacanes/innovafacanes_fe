@@ -15,4 +15,5 @@ export const esWords = {
   moreInfo: "MÁS INFORMACIÓN",
   whoWeAre: "¿Quiénes somos?",
   whatWeOffer: "¿Qué ofrecemos?",
+  loadMore: "CARGAR MÁS",
 };

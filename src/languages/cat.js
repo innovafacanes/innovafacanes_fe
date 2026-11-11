@@ -15,4 +15,5 @@ export const catWords = {
   moreInfo: "MÉS INFORMACIÓ",
   whoWeAre: "Qui som?",
   whatWeOffer: "Què oferim?",
+  loadMore: "CARREGAR MÉS",
 };

@@ -17,4 +17,9 @@ describe("cloudinaryLoader", () => {
   it("leaves non-Cloudinary URLs untouched", () => {
     expect(cloudinaryLoader({ src: "/iflogo_negro.png", width: 240 })).toBe("/iflogo_negro.png");
   });
+
+  it("leaves already-transformed Cloudinary URLs untouched", () => {
+    const transformed = "https://res.cloudinary.com/drbqhjtmm/image/upload/c_fill,w_100/v1/x.jpg";
+    expect(cloudinaryLoader({ src: transformed, width: 640 })).toBe(transformed);
+  });
 });

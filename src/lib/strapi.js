@@ -7,8 +7,9 @@ export const buildUrl = (path, params = {}, baseUrl = BASE_URL) => {
 };
 
 export async function strapiGet(path, params = {}, { fetchImpl = fetch, baseUrl = BASE_URL } = {}) {
+  if (!baseUrl) throw new Error("NEXT_PUBLIC_STRAPI_BASE_URL is not set");
   const url = buildUrl(path, params, baseUrl);
-  const response = await fetchImpl(url);
+  const response = await fetchImpl(url, { signal: AbortSignal.timeout(10_000) });
   if (!response.ok) throw new Error(`Strapi ${response.status} for ${url}`);
   return response.json();
 }

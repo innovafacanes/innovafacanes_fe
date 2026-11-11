@@ -53,6 +53,11 @@ describe("normalizeHome", () => {
       description: home.data.attributes.perque_nosaltres[0].descripcio_rao,
     });
   });
+
+  it("returns an empty reasons array when perque_nosaltres is missing", () => {
+    const result = normalizeHome({ data: { attributes: { top_carousel: { data: null }, perque_nosaltres: null } } });
+    expect(result.reasons).toEqual([]);
+  });
 });
 
 describe("normalizeNosaltres", () => {
@@ -62,6 +67,10 @@ describe("normalizeNosaltres", () => {
     expect(result[0].title).toBe(nosaltres.data.attributes.tema[0].titol);
     expect(result[0].image.url).toMatch(/^https:\/\/res\.cloudinary\.com\//);
   });
+
+  it("returns an empty array when tema is missing", () => {
+    expect(normalizeNosaltres({ data: { attributes: { tema: null } } })).toEqual([]);
+  });
 });
 
 describe("normalizeServeis", () => {
@@ -70,6 +79,10 @@ describe("normalizeServeis", () => {
       title: servei.data.attributes.servei[0].titol_servei,
       description: servei.data.attributes.servei[0].descripcio_servei,
     });
+  });
+
+  it("returns an empty array when servei is missing", () => {
+    expect(normalizeServeis({ data: { attributes: { servei: null } } })).toEqual([]);
   });
 });
 

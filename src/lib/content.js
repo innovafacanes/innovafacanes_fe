@@ -1,9 +1,9 @@
 import { HOME_PROJECTS_COUNT, PROJECTS_PAGE_SIZE } from "./config";
 import {
   normalizeContact,
+  normalizeFirstProject,
   normalizeHome,
   normalizeNosaltres,
-  normalizeProject,
   normalizeProjectsPage,
   normalizeServeis,
 } from "./normalize";
@@ -32,9 +32,13 @@ export async function getProjectsPage(locale, page) {
 }
 
 export async function getProject(locale, id) {
-  const response = await strapiGet(`/projects/${id}`, { populate: "Images" });
-  if (response.data?.attributes?.locale !== locale) return null;
-  return normalizeProject(response.data);
+  if (!Number.isInteger(id) || id <= 0) return null;
+  const response = await strapiGet("/projects", {
+    locale,
+    "filters[id][$eq]": id,
+    populate: "Images",
+  });
+  return normalizeFirstProject(response);
 }
 
 export const getNosaltres = async (locale) =>

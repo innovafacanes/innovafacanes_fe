@@ -21,6 +21,9 @@ export const normalizeProject = (entry) => ({
   images: toImages(entry.attributes.Images),
 });
 
+export const normalizeFirstProject = (response) =>
+  response.data.length > 0 ? normalizeProject(response.data[0]) : null;
+
 export const normalizeProjectsPage = (response) => ({
   projects: response.data.map(normalizeProject),
   page: response.meta.pagination.page,
@@ -30,21 +33,21 @@ export const normalizeProjectsPage = (response) => ({
 
 export const normalizeHome = (response) => ({
   carousel: toImages(response.data.attributes.top_carousel),
-  reasons: response.data.attributes.perque_nosaltres.map((reason) => ({
+  reasons: (response.data.attributes.perque_nosaltres ?? []).map((reason) => ({
     title: reason.titol_rao,
     description: reason.descripcio_rao,
   })),
 });
 
 export const normalizeNosaltres = (response) =>
-  response.data.attributes.tema.map((section) => ({
+  (response.data.attributes.tema ?? []).map((section) => ({
     title: section.titol,
     description: section.descripcio,
     image: toImage(section.imatge?.data),
   }));
 
 export const normalizeServeis = (response) =>
-  response.data.attributes.servei.map((service) => ({
+  (response.data.attributes.servei ?? []).map((service) => ({
     title: service.titol_servei,
     description: service.descripcio_servei,
   }));

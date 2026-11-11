@@ -28,6 +28,16 @@ export default async function handler(req, res) {
     return res.status(401).json({ message: "Invalid secret" });
   }
 
+  const uid = req.body?.uid;
+  if (
+    typeof uid === "string" &&
+    (uid.startsWith("plugin::ezforms.") ||
+      uid.startsWith("plugin::users-permissions.") ||
+      uid.startsWith("admin::"))
+  ) {
+    return res.status(200).json({ skipped: true, reason: "ignored model" });
+  }
+
   const paths = [];
   let strapiUnavailable = false;
   for (const locale of LOCALES) {

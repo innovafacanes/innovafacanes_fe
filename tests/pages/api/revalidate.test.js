@@ -47,9 +47,27 @@ describe("POST /api/revalidate", () => {
     expect(res.statusCode).toBe(401);
   });
 
+  it("skips plugin-internal models without revalidating", async () => {
+    const req = {
+      method: "POST",
+      headers: { "x-revalidate-secret": SECRET },
+      body: { event: "entry.create", uid: "plugin::ezforms.submission", entry: {} },
+    };
+    const res = makeRes();
+    await handler(req, res);
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ skipped: true, reason: "ignored model" });
+    expect(res.revalidate).not.toHaveBeenCalled();
+    expect(getProjectsPage).not.toHaveBeenCalled();
+  });
+
   it("revalidates static paths and pagina 2..pageCount+1 per locale on success", async () => {
     getProjectsPage.mockResolvedValue({ pageCount: 3 });
-    const req = { method: "POST", headers: { "x-revalidate-secret": SECRET } };
+    const req = {
+      method: "POST",
+      headers: { "x-revalidate-secret": SECRET },
+      body: { event: "entry.update", uid: "api::project.project", entry: {} },
+    };
     const res = makeRes();
     await handler(req, res);
     expect(res.statusCode).toBe(200);

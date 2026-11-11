@@ -1,31 +1,17 @@
 import styles from "@/styles/Contacte.module.css";
 import Image from "next/image";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
-import useStrapiApi, { fetchContacte } from "./api/fetching";
+import Seo from "../../components/Seo";
 import LanguageContext from "@/store/language/context/LanguageContext";
+import { REVALIDATE_SECONDS } from "@/lib/config";
+import { getContact } from "@/lib/content";
 
 const apiBaseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
-//const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
-//const MY_EMAIL = process.env.NEXT_PUBLIC_MY_EMAIL;
 
-const Contacte = () => {
-  const { language, t } = useContext(LanguageContext);
-  const { fetchContacte } = useStrapiApi();
-  const [contact, setContact] = useState([
-    { nom: "", direccio: "", tlf: "", mbl: "", email: "" },
-  ]);
-
-  useEffect(() => {
-    (async () => {
-      const {
-        props: { contactInfo },
-      } = await fetchContacte(language);
-
-      setContact(contactInfo);
-    })();
-  }, [fetchContacte, language]);
+const Contacte = ({ contact }) => {
+  const { t } = useContext(LanguageContext);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -49,17 +35,6 @@ const Contacte = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ formData: formData }),
       });
-
-      /*const { data } = await resend.emails.send({
-        from: "onboarding@resend.dev",
-        to: [`${MY_EMAIL}`],
-        subject: "Missatge nou",
-        react: EmailTemplate({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
-      });*/
     } catch (error) {
       console.log(error);
     }
@@ -67,15 +42,16 @@ const Contacte = () => {
 
   return (
     <>
+      <Seo title={`${t("contact")} | Innovafaçanes`} />
       <Navbar />
       <main className={styles.mainContacte}>
         <div className={styles.firstDiv}>
           <h1 className={styles.contactTitle}>{t("contactUs")}</h1>
           <div className={styles.infoWrapper}>
-            <h2 className={styles.infoText}>{contact.nom}</h2>
-            <h2 className={styles.infoText}>{contact.direccio}</h2>
-            <h2 className={styles.infoText}>{contact.tlf}</h2>
-            <h2 className={styles.infoText}>{contact.mbl}</h2>
+            <h2 className={styles.infoText}>{contact.name}</h2>
+            <h2 className={styles.infoText}>{contact.address}</h2>
+            <h2 className={styles.infoText}>{contact.phone}</h2>
+            <h2 className={styles.infoText}>{contact.mobile}</h2>
           </div>
         </div>
         <div className={styles.secondDiv}>
@@ -159,3 +135,7 @@ const Contacte = () => {
 };
 
 export default Contacte;
+
+export async function getStaticProps({ locale }) {
+  return { props: { contact: await getContact(locale) }, revalidate: REVALIDATE_SECONDS };
+}

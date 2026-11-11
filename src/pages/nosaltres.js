@@ -1,108 +1,75 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Navbar from "../../components/Navbar";
-import useStrapiApi, { fetchNosaltres } from "./api/fetching";
-import styles from "@/styles/Nosaltres.module.css";
 import Footer from "../../components/Footer";
+import Seo from "../../components/Seo";
+import styles from "@/styles/Nosaltres.module.css";
 import Image from "next/image";
 import LanguageContext from "@/store/language/context/LanguageContext";
+import cloudinaryLoader from "@/lib/cloudinary";
+import { REVALIDATE_SECONDS } from "@/lib/config";
+import { getNosaltres } from "@/lib/content";
 
-export default function Nosaltres() {
-  const imgWidth = 800;
-  const imgHeight = 550;
-  const { language, t } = useContext(LanguageContext);
-  const { fetchNosaltres } = useStrapiApi();
-  const [info, setInfo] = useState([
-    { title: "", description: "", image: "", alt: "" },
-    { title: "", description: "", image: "", alt: "" },
-    { title: "", description: "", image: "", alt: "" },
-    { title: "", description: "", image: "", alt: "" },
-  ]);
+const IMG_WIDTH = 800;
+const IMG_HEIGHT = 550;
 
-  useEffect(() => {
-    (async () => {
-      const {
-        props: { nosaltresInfo },
-      } = await fetchNosaltres(language);
+function SectionImage({ image, wrapperClass }) {
+  return (
+    <div className={wrapperClass}>
+      {image && (
+        <Image
+          className={styles.themeImg}
+          loader={cloudinaryLoader}
+          src={image.url}
+          alt={image.alt}
+          width={IMG_WIDTH}
+          height={IMG_HEIGHT}
+        />
+      )}
+    </div>
+  );
+}
 
-      setInfo(nosaltresInfo);
-    })();
-  }, [fetchNosaltres, language]);
+function SectionText({ title, description }) {
+  return (
+    <div className={styles.themeText}>
+      <h2 className={styles.themeTitle}>{title}</h2>
+      <p className={styles.themeDescription}>{description}</p>
+    </div>
+  );
+}
+
+export default function Nosaltres({ sections }) {
+  const { t } = useContext(LanguageContext);
 
   return (
     <>
+      <Seo title={`${t("aboutUs")} | Innovafaçanes`} />
       <Navbar />
       <div className={styles.nosaltresWrapper}>
         <div className={styles.mainTitle}>
           <h1>{t("whoWeAre")}</h1>
         </div>
         <div className={styles.sectionWrapper}>
-          {/*FIRST*/}
-          <div className={styles.themeWrapper}>
-            <div className={styles.themeText}>
-              <h2 className={styles.themeTitle}>{info[0].title}</h2>
-              <p className={styles.themeDescription}>{info[0].description}</p>
-            </div>
-            <div className={styles.themeImageWrapper1}>
-              <Image
-                className={styles.themeImg}
-                src={`${info[0].image}`}
-                alt={info[0].alt}
-                width={imgWidth}
-                height={imgHeight}
-              />
-            </div>
-          </div>
-          {/*SECOND*/}
-          <div className={`${styles.themeWrapperReverse}`}>
-            <div className={styles.themeImageWrapper2}>
-              <Image
-                className={styles.themeImg}
-                src={`${info[1].image}`}
-                alt={info[1].alt}
-                width={imgWidth}
-                height={imgHeight}
-              />
-            </div>
-            <div className={styles.themeText}>
-              <h2 className={styles.themeTitle}>{info[1].title}</h2>
-              <p className={styles.themeDescription}>{info[1].description}</p>
-            </div>
-          </div>
-          {/*THIRD*/}
-          <div className={styles.themeWrapper}>
-            <div className={styles.themeText}>
-              <h2 className={styles.themeTitle}>{info[2].title}</h2>
-              <p className={styles.themeDescription}>{info[2].description}</p>
-            </div>
-            <div className={styles.themeImageWrapper1}>
-              <Image
-                className={styles.themeImg}
-                src={`${info[2].image}`}
-                alt={info[2].alt}
-                width={imgWidth}
-                height={imgHeight}
-              />
-            </div>
-          </div>
-          {/*FOURTH*/}
-          <div className={`${styles.themeWrapperReverse}`}>
-            <div className={styles.themeImageWrapper2}>
-              <Image
-                className={styles.themeImg}
-                src={`${info[3].image}`}
-                alt={info[3].alt}
-                width={imgWidth}
-                height={imgHeight}
-              />
-            </div>
-            <div className={styles.themeText}>
-              <h2 className={styles.themeTitle}>{info[3].title}</h2>
-              <p className={styles.themeDescription}>{info[3].description}</p>
-            </div>
-          </div>
+          {sections.map((section, index) =>
+            index % 2 === 0 ? (
+              <div key={index} className={styles.themeWrapper}>
+                <SectionText {...section} />
+                <SectionImage image={section.image} wrapperClass={styles.themeImageWrapper1} />
+              </div>
+            ) : (
+              <div key={index} className={styles.themeWrapperReverse}>
+                <SectionImage image={section.image} wrapperClass={styles.themeImageWrapper2} />
+                <SectionText {...section} />
+              </div>
+            )
+          )}
         </div>
       </div>
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return { props: { sections: await getNosaltres(locale) }, revalidate: REVALIDATE_SECONDS };
 }

@@ -5,7 +5,6 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import useStrapiApi, { fetchContacte } from "./api/fetching";
 import LanguageContext from "@/store/language/context/LanguageContext";
-import { Resend } from "resend";
 
 const apiBaseUrl = process.env.NEXT_PUBLIC_STRAPI_BASE_URL;
 //const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);

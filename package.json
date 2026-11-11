@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "vitest run"
   },
   "dependencies": {
     "embla-carousel-react": "^8.6.0",
@@ -16,5 +17,8 @@
   },
   "engines": {
     "node": "22.x"
+  },
+  "devDependencies": {
+    "vitest": "^5.1.0"
   }
 }

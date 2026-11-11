@@ -51,13 +51,13 @@ export default function Navbar() {
           </Link>
           <div className={styles.langWrapper}>
             <button onClick={() => setChosenLanguage("ca")}>
-              <Image src="\ca.svg" alt="burger-menu" width={20} height={15} />
+              <Image src="\ca.svg" alt="Català" width={20} height={15} />
             </button>
             <button onClick={() => setChosenLanguage("es")}>
-              <Image src="\es.svg" alt="burger-menu" width={20} height={15} />
+              <Image src="\es.svg" alt="Español" width={20} height={15} />
             </button>
             <button onClick={() => setChosenLanguage("en")}>
-              <Image src="\en.svg" alt="burger-menu" width={20} height={15} />
+              <Image src="\en.svg" alt="English" width={20} height={15} />
             </button>
           </div>
         </div>
@@ -79,13 +79,13 @@ export default function Navbar() {
             </Link>
             <div className={styles.langWrapper}>
               <button onClick={() => setChosenLanguage("ca")}>
-                <Image src="\ca.svg" alt="burger-menu" width={20} height={15} />
+                <Image src="\ca.svg" alt="Català" width={20} height={15} />
               </button>
               <button onClick={() => setChosenLanguage("es")}>
-                <Image src="\es.svg" alt="burger-menu" width={20} height={15} />
+                <Image src="\es.svg" alt="Español" width={20} height={15} />
               </button>
               <button onClick={() => setChosenLanguage("en")}>
-                <Image src="\en.svg" alt="burger-menu" width={20} height={15} />
+                <Image src="\en.svg" alt="English" width={20} height={15} />
               </button>
             </div>
           </div>

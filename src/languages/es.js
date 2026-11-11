@@ -16,4 +16,6 @@ export const esWords = {
   whoWeAre: "¿Quiénes somos?",
   whatWeOffer: "¿Qué ofrecemos?",
   loadMore: "CARGAR MÁS",
+  metaDescription:
+    "En Innovafaçanes construimos, reformamos y restauramos fachadas de todo tipo y ofrecemos soluciones integrales para tus proyectos",
 };

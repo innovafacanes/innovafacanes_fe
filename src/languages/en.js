@@ -16,4 +16,6 @@ export const enWords = {
   whoWeAre: "About us",
   whatWeOffer: "Our services",
   loadMore: "LOAD MORE",
+  metaDescription:
+    "At Innovafaçanes we build, renovate and restore all kinds of façades and offer comprehensive solutions for your projects",
 };

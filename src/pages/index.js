@@ -17,10 +17,7 @@ export default function Inici({ carousel, reasons, projects }) {
 
   return (
     <>
-      <Seo
-        title="Innovafaçanes"
-        description="A Innovafaçanes construim, reformem i restaurem façanes de tot tipus i oferim solucions integrals als teus projectes"
-      />
+      <Seo title="Innovafaçanes" description={t("metaDescription")} />
       <>
         <Navbar></Navbar>
         <main className={styles.main}>

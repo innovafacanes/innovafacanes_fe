@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styles from "@/styles/Projectes.module.css";
 import LanguageContext from "@/store/language/context/LanguageContext";
 import cloudinaryLoader from "@/lib/cloudinary";
@@ -16,6 +16,9 @@ export default function ProjectsGrid({ initialProjects, page, pageCount }) {
   const [lastPage, setLastPage] = useState(page);
   const [loading, setLoading] = useState(false);
   const [activeProject, setActiveProject] = useState(null);
+  // Tracks whether this component opened the current popup itself (via router.push), so closing
+  // it can go back in history instead of leaving a duplicate entry behind.
+  const openedByUsRef = useRef(false);
 
   // New props arrive when switching language or page. Browser "back" from a popup also
   // re-delivers equal props as a new object; keying on content keeps the projects already loaded.
@@ -49,6 +52,7 @@ export default function ProjectsGrid({ initialProjects, page, pageCount }) {
   }, [slug, projects, router.locale]);
 
   const openProject = (project) => {
+    openedByUsRef.current = true;
     router.push(
       { pathname: router.pathname, query: { ...router.query, p: projectSlug(project) } },
       undefined,
@@ -57,21 +61,41 @@ export default function ProjectsGrid({ initialProjects, page, pageCount }) {
   };
 
   const closeProject = () => {
+    // reactjs-popup calls onClose again after a programmatic close (eg. router.back(), a
+    // language switch); once ?p is already gone there is nothing left to do.
+    if (typeof router.query.p !== "string") return;
+
+    if (openedByUsRef.current) {
+      openedByUsRef.current = false;
+      router.back();
+      return;
+    }
+
     const { p, ...query } = router.query;
     router.replace({ pathname: router.pathname, query }, undefined, { shallow: true, scroll: false });
   };
 
   const loadMore = async (event) => {
+    // Let the browser handle modified clicks (new tab/window) and non-primary buttons normally.
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
     if (loading) return;
     setLoading(true);
+    const locale = router.locale;
+    const key = initialKey;
     try {
-      const next = await getProjectsPage(router.locale, lastPage + 1);
-      setProjects((current) => [...current, ...next.projects]);
+      const next = await getProjectsPage(locale, lastPage + 1);
+      if (router.locale !== locale || initialKey !== key) return;
+      setProjects((current) => {
+        const ids = new Set(current.map((project) => project.id));
+        return [...current, ...next.projects.filter((project) => !ids.has(project.id))];
+      });
       setLastPage(next.page);
     } catch {
-      // Fall back to the pre-rendered page if the browser cannot reach Strapi.
-      router.push(`/projectes/pagina/${lastPage + 1}`);
+      if (router.locale === locale && initialKey === key) {
+        // Fall back to the pre-rendered page if the browser cannot reach Strapi.
+        router.push(`/projectes/pagina/${lastPage + 1}`);
+      }
     } finally {
       setLoading(false);
     }

@@ -1,6 +1,7 @@
 import ProjectsPage from "../../../../components/ProjectsPage";
 import { REVALIDATE_SECONDS } from "@/lib/config";
 import { getProjectsPage } from "@/lib/content";
+import { parsePageParam } from "@/lib/pageParam";
 
 export default ProjectsPage;
 
@@ -17,9 +18,9 @@ export async function getStaticPaths({ locales }) {
 }
 
 export async function getStaticProps({ params, locale }) {
-  const page = Number(params.page);
+  const page = parsePageParam(params.page);
   // Page 1 lives at /projectes.
-  if (!Number.isInteger(page) || page < 2) return { notFound: true };
+  if (page === null || page < 2) return { notFound: true };
 
   const { projects, pageCount } = await getProjectsPage(locale, page);
   if (page > pageCount) return { notFound: true, revalidate: REVALIDATE_SECONDS };

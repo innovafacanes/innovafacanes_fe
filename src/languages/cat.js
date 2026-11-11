@@ -16,4 +16,6 @@ export const catWords = {
   whoWeAre: "Qui som?",
   whatWeOffer: "Què oferim?",
   loadMore: "CARREGAR MÉS",
+  metaDescription:
+    "A Innovafaçanes construim, reformem i restaurem façanes de tot tipus i oferim solucions integrals als teus projectes",
 };

@@ -6,22 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "test": "vitest run"
   },
   "dependencies": {
-    "@nextui-org/react": "^1.0.0-beta.13",
-    "embla-carousel-react": "^8.0.0-rc07",
-    "eslint": "8.36.0",
-    "eslint-config-next": "14.2.35",
-    "flag-icons": "^6.6.6",
-    "next": "14.2.35",
-    "next-i18next": "^13.3.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "reactjs-popup": "^2.0.5",
-    "resend": "^3.2.0"
+    "embla-carousel-react": "^8.6.0",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "reactjs-popup": "^2.0.6"
   },
   "engines": {
     "node": "22.x"
+  },
+  "devDependencies": {
+    "vitest": "^5.1.0"
   }
 }

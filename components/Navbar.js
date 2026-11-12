@@ -2,33 +2,18 @@ import LanguageContext from "@/store/language/context/LanguageContext";
 import styles from "@/styles/Navbar.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
+
+const NAV_WORDS = {
+  ca: ["Serveis", "Projectes", "Nosaltres", "Contacte"],
+  es: ["Servicios", "Proyectos", "Nosotros", "Contacto"],
+  en: ["Services", "Projects", "About us", "Contact"],
+};
 
 export default function Navbar() {
   const [mobileMenuState, setMobileMenuState] = useState(false);
-  const [navWords, setNavWords] = useState([
-    "Serveis",
-    "Projectes",
-    "Nosaltres",
-    "Contacte",
-  ]);
   const { setChosenLanguage, language } = useContext(LanguageContext);
-
-  useEffect(() => {
-    navWord(language);
-  }, [language]);
-
-  const navWord = (language) => {
-    if (language === "ca") {
-      setNavWords(["Serveis", "Projectes", "Nosaltres", "Contacte"]);
-    }
-    if (language === "es") {
-      setNavWords(["Servicios", "Proyectos", "Nosotros", "Contacto"]);
-    }
-    if (language === "en") {
-      setNavWords(["Services", "Projects", "About us", "Contact"]);
-    }
-  };
+  const navWords = NAV_WORDS[language];
 
   const handleMobileMenu = () => {
     setMobileMenuState((mobileMenuState) => !mobileMenuState);
@@ -66,13 +51,13 @@ export default function Navbar() {
           </Link>
           <div className={styles.langWrapper}>
             <button onClick={() => setChosenLanguage("ca")}>
-              <Image src="\ca.svg" alt="burger-menu" width={20} height={15} />
+              <Image src="\ca.svg" alt="Català" width={20} height={15} />
             </button>
             <button onClick={() => setChosenLanguage("es")}>
-              <Image src="\es.svg" alt="burger-menu" width={20} height={15} />
+              <Image src="\es.svg" alt="Español" width={20} height={15} />
             </button>
             <button onClick={() => setChosenLanguage("en")}>
-              <Image src="\en.svg" alt="burger-menu" width={20} height={15} />
+              <Image src="\en.svg" alt="English" width={20} height={15} />
             </button>
           </div>
         </div>
@@ -81,26 +66,26 @@ export default function Navbar() {
         <div className={styles.mobileMenu}>
           <div className={styles.menuTagsWrapper}>
             <Link href="/serveis" rel="noopener noreferrer">
-              <div className={styles.menuItems}>Serveis</div>
+              <div className={styles.menuItems}>{navWords[0]}</div>
             </Link>
             <Link href="/projectes" rel="noopener noreferrer">
-              <div className={styles.menuItems}>Projectes</div>
+              <div className={styles.menuItems}>{navWords[1]}</div>
             </Link>
             <Link href="/nosaltres" rel="noopener noreferrer">
-              <div className={styles.menuItems}>Nosaltres</div>
+              <div className={styles.menuItems}>{navWords[2]}</div>
             </Link>
             <Link href="/contacte" rel="noopener noreferrer">
-              <div className={styles.menuItems}>Contacte</div>
+              <div className={styles.menuItems}>{navWords[3]}</div>
             </Link>
             <div className={styles.langWrapper}>
               <button onClick={() => setChosenLanguage("ca")}>
-                <Image src="\ca.svg" alt="burger-menu" width={20} height={15} />
+                <Image src="\ca.svg" alt="Català" width={20} height={15} />
               </button>
               <button onClick={() => setChosenLanguage("es")}>
-                <Image src="\es.svg" alt="burger-menu" width={20} height={15} />
+                <Image src="\es.svg" alt="Español" width={20} height={15} />
               </button>
               <button onClick={() => setChosenLanguage("en")}>
-                <Image src="\en.svg" alt="burger-menu" width={20} height={15} />
+                <Image src="\en.svg" alt="English" width={20} height={15} />
               </button>
             </div>
           </div>

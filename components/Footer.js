@@ -2,27 +2,17 @@ import LanguageContext from "@/store/language/context/LanguageContext";
 import styles from "@/styles/Footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
+
+const CONTACT_TITLE = {
+  ca: "Contacta amb nosaltres",
+  es: "Contacta con nosotros",
+  en: "Contact with us",
+};
 
 export default function Footer() {
   const { language } = useContext(LanguageContext);
-  const [contact, setContact] = useState(["Contacta amb nosaltres"]);
-
-  useEffect(() => {
-    changeTitle(language);
-  }, [language]);
-
-  const changeTitle = (language) => {
-    if (language === "ca") {
-      setContact(["Contacta amb nosaltres"]);
-    }
-    if (language === "es") {
-      setContact(["Contacta con nosotros"]);
-    }
-    if (language === "en") {
-      setContact(["Contact with us"]);
-    }
-  };
+  const contact = CONTACT_TITLE[language];
 
   return (
     <div className={styles.footerWrapper}>

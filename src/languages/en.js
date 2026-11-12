@@ -8,6 +8,10 @@ export const enWords = {
   formText: "Text",
   formSend: "SEND",
   formPlaceHolder: "Write your message",
+  formSending: "Sending…",
+  formSent: "Message sent. We'll get back to you soon.",
+  formError:
+    "The message could not be sent. Please try again or write to innovafacanes@innovafacanes.cat.",
   headerCarousel1: "Different systems",
   headerCarousel2: "Complete solutions",
   headerCarousel3: "Best quality",
@@ -15,4 +19,7 @@ export const enWords = {
   moreInfo: "MORE INFORMATION",
   whoWeAre: "About us",
   whatWeOffer: "Our services",
+  loadMore: "LOAD MORE",
+  metaDescription:
+    "At Innovafaçanes we build, renovate and restore all kinds of façades and offer comprehensive solutions for your projects",
 };

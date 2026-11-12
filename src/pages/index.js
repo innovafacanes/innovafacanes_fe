@@ -1,51 +1,23 @@
 import styles from "@/styles/Home.module.css";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "../../components/Footer";
 import HomeCarousel from "../../components/HomeCarousel";
 import Navbar from "../../components/Navbar";
 import Reason from "../../components/Reason";
-import useStrapiApi from "./api/fetching";
-import { useContext, useEffect, useState } from "react";
+import Seo from "../../components/Seo";
+import { useContext } from "react";
 import LanguageContext from "@/store/language/context/LanguageContext";
+import cloudinaryLoader from "@/lib/cloudinary";
+import { REVALIDATE_SECONDS } from "@/lib/config";
+import { getHome } from "@/lib/content";
 
-export default function Inici() {
-  const { fetchHome } = useStrapiApi();
-  const [info, setInfo] = useState({
-    carousel: [],
-    reasons: [],
-    projects: [],
-  });
-
-  const { language, t } = useContext(LanguageContext);
-
-  useEffect(() => {
-    (async () => {
-      const {
-        props: { carousel, projects, reasons },
-      } = await fetchHome(language);
-
-      setInfo({
-        carousel: carousel,
-        reasons: reasons,
-        projects: projects,
-      });
-    })();
-  }, [fetchHome, language]);
+export default function Inici({ carousel, reasons, projects }) {
+  const { t } = useContext(LanguageContext);
 
   return (
     <>
-      <Head>
-        <title>Innovafaçanes</title>
-        <meta
-          name="description"
-          content="A Innovafaçanes construim, reformem i restaurem façanes de tot tipus i oferim solucions integrals als teus projectes"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Seo title="Innovafaçanes" description={t("metaDescription")} />
       <>
         <Navbar></Navbar>
         <main className={styles.main}>
@@ -57,8 +29,7 @@ export default function Inici() {
                 <span>{t("headerCarousel3")}</span>
               </h1>
             </div>
-            <HomeCarousel carousel={info.carousel}></HomeCarousel>
-            {/* <Image src={`${STRAPI_BASE_URL}${carousel[0].url}`} alt={`${carousel[0].alt}`}></Image> */}
+            <HomeCarousel carousel={carousel}></HomeCarousel>
           </section>
           <section className={styles.homeReasons}>
             <div className={styles.sectionTitleWrapper}>
@@ -80,13 +51,8 @@ export default function Inici() {
               </div>
             </div>
             <div className={styles.reasonsWrapper}>
-              {info.reasons.map(({ reasonTitle, reasonDesc }, index) => (
-                <Reason
-                  key={index}
-                  number={index}
-                  reasonTitle={reasonTitle}
-                  reasonDesc={reasonDesc}
-                />
+              {reasons.map(({ title, description }, index) => (
+                <Reason key={index} number={index} reasonTitle={title} reasonDesc={description} />
               ))}
             </div>
           </section>
@@ -110,24 +76,23 @@ export default function Inici() {
               </div>
             </div>
             <div className={styles.container}>
-              {info.projects.map((project, index) => {
-                return index < 6 ? (
-                  <div className={styles[`box${index}`]} key={index}>
-                    <Link href="/projectes" rel="noopener noreferrer">
+              {projects.map((project, index) => (
+                <div className={styles[`box${index}`]} key={project.id}>
+                  <Link href="/projectes" rel="noopener noreferrer">
+                    {project.images[0] && (
                       <Image
                         className={styles.projectImg}
-                        src={`${project.images.data[0].attributes.url}`}
-                        alt={project.images.data[0].attributes.alternativeText}
+                        loader={cloudinaryLoader}
+                        src={project.images[0].url}
+                        alt={project.images[0].alt}
                         fill={true}
                         style={{ objectFit: "cover" }}
                       />
-                      <h2 className={styles.projectTitle}>{project.title}</h2>
-                    </Link>
-                  </div>
-                ) : (
-                  <></>
-                );
-              })}
+                    )}
+                    <h2 className={styles.projectTitle}>{project.title}</h2>
+                  </Link>
+                </div>
+              ))}
             </div>
           </section>
           <Footer></Footer>
@@ -137,6 +102,6 @@ export default function Inici() {
   );
 }
 
-// export async function getStaticProps() {
-//   return fetchHome("ca");
-// }
+export async function getStaticProps({ locale }) {
+  return { props: await getHome(locale), revalidate: REVALIDATE_SECONDS };
+}

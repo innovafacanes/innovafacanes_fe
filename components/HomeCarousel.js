@@ -1,9 +1,9 @@
 import Image from "next/image";
+import cloudinaryLoader from "@/lib/cloudinary";
 import styles from "@/styles/Home.module.css";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useCallback } from "react";
 
-//Quan recarrego la web, perdo els props perque es SSR i es genera un html que després s'envia al client
 export default function HomeCarousel(props) {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
@@ -25,6 +25,7 @@ export default function HomeCarousel(props) {
               <div className={styles.emblaSlide} key={index}>
                 <Image
                   className={styles.homeCarouselImg}
+                  loader={cloudinaryLoader}
                   src={`${url}`}
                   alt={alt}
                   fill={true}
@@ -34,7 +35,7 @@ export default function HomeCarousel(props) {
             ))}
           </div>
         </div>
-        <button class={styles.emblaPrev} onClick={scrollPrev}>
+        <button className={styles.emblaPrev} onClick={scrollPrev}>
           <Image
             src="\arrow_right.svg"
             alt="Previous button"
@@ -43,7 +44,7 @@ export default function HomeCarousel(props) {
             className={styles.emblaPrevImg}
           />
         </button>
-        <button class={styles.emblaNext} onClick={scrollNext}>
+        <button className={styles.emblaNext} onClick={scrollNext}>
           <Image
             src="\arrow_right.svg"
             alt="Previous button"
